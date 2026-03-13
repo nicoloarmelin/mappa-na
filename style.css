@@ -1,0 +1,2504 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #cecece;
+    font-family: 'Outfit', sans-serif;
+}
+
+#map-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Hide scrollbars for a cleaner UI */
+#info-panel,
+#search-dropdown,
+.dropdown-inner,
+#add-paper-modal .modal-content,
+#paper-list-content,
+#chip-management-section {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#info-panel::-webkit-scrollbar,
+#search-dropdown::-webkit-scrollbar,
+.dropdown-inner::-webkit-scrollbar,
+#add-paper-modal .modal-content::-webkit-scrollbar,
+#paper-list-content::-webkit-scrollbar,
+#chip-management-section::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+/* Stile etichetta Keyword */
+.keyword-label {
+    fill: white;
+    font-size: 13px;
+    font-weight: bold;
+    pointer-events: none;
+    /* Il testo non blocca il click */
+}
+
+.keyword-rect {
+    fill: black;
+    rx: 4;
+    /* Arrotondamento angoli */
+}
+
+#info-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-height: calc(100vh - 180px);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    color: #1a1a1a;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow-y: auto;
+    font-family: 'Outfit', sans-serif;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    display: none;
+    transform: translateX(20px);
+}
+
+#info-area {
+    display: block;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    font-family: 'JetBrains Mono', monospace;
+    /* Mantieni il mono per le keywords */
+    line-height: 1.4;
+}
+
+#info-title {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #111;
+}
+
+#info-desc {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* --- STILI MARKDOWN INFO DESC --- */
+#info-desc p {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+#info-desc ul,
+#info-desc ol {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+#info-desc li {
+    margin-bottom: 5px;
+}
+
+#info-desc strong,
+#info-desc b {
+    color: #111;
+    font-weight: 700;
+}
+
+#info-desc em,
+#info-desc i {
+    color: #555;
+}
+
+#info-desc blockquote {
+    border-left: 3px solid #FF4D00;
+    margin: 10px 0;
+    padding: 5px 15px;
+    background: rgba(255, 77, 0, 0.07);
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+}
+
+#info-desc h1,
+#info-desc h2,
+#info-desc h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'Outfit', sans-serif;
+    color: #111;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
+}
+
+#info-desc h3 {
+    font-size: 1.1rem;
+}
+
+#info-desc a {
+    color: #FF4D00;
+    text-decoration: none;
+    border-bottom: 1px dotted #FF4D00;
+}
+
+#info-panel.visible {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    /* Torna in posizione naturale */
+}
+
+/* =========================================
+   DARK THEME INFO PANEL (Casi Studio)
+========================================= */
+#info-panel.dark-theme {
+    background: rgba(20, 20, 20, 0.85);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #eee;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+#info-panel.dark-theme #info-title,
+#info-panel.dark-theme #info-desc h1,
+#info-panel.dark-theme #info-desc h2,
+#info-panel.dark-theme #info-desc h3,
+#info-panel.dark-theme #info-desc strong,
+#info-panel.dark-theme #info-desc b {
+    color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+#info-panel.dark-theme #info-desc {
+    color: #ccc;
+}
+
+#info-panel.dark-theme #info-desc em,
+#info-panel.dark-theme #info-desc i {
+    color: #aaa;
+}
+
+#info-panel.dark-theme #info-desc a {
+    color: #FF7B00;
+    border-bottom-color: #FF7B00;
+}
+
+#info-panel.dark-theme #info-desc blockquote {
+    background: rgba(255, 123, 0, 0.1);
+    border-left-color: #FF7B00;
+}
+
+/* Hover per Keywords e Area in Dark Theme */
+#info-panel.dark-theme #info-area span {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+#info-panel.dark-theme #info-area span[style*="cursor: pointer"]:hover {
+    color: #fff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Permetti hover visibile anche alle Aree se l'utente ci passa sopra */
+#info-panel.dark-theme #info-area span:not([style*="cursor: pointer"]):hover {
+    filter: brightness(1.5);
+}
+
+/* --- Bottoni Tema Scuro Sincronizzati con Sidebar --- */
+/* Stile Base (Fondo dark/traslucido per mimetizzarsi col pannello) */
+#info-panel.dark-theme #edit-info-btn,
+#info-panel.dark-theme #close-panel,
+#info-panel.dark-theme .info-link-btn {
+    background: rgba(255, 255, 255, 0.1);
+    /* Traslucido chiaro su scuro */
+    color: #eee;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+
+/* Base Hover Scale per tutti */
+#info-panel.dark-theme #edit-info-btn:hover,
+#info-panel.dark-theme #close-panel:hover,
+#info-panel.dark-theme .info-link-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Hover SPECIFICO: Modifica (Giallo/Arancio) */
+#info-panel.dark-theme #edit-info-btn:hover {
+    color: #ffc107;
+    background: rgba(255, 193, 7, 0.15);
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+/* Hover SPECIFICO: Chiudi (Rosso) */
+#info-panel.dark-theme #close-panel:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+}
+
+/* Hover SPECIFICO: Link (Brand Color o Bianco) */
+#info-panel.dark-theme .info-link-btn:hover {
+    background: #fff;
+    color: #FF7B00;
+    border-color: #FF7B00;
+}
+
+
+/* =========================================
+   Stili Bottoni Info-Panel (Link & Close) BASE
+========================================= */
+#info-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#edit-info-btn,
+#close-panel {
+    margin-top: 0;
+    cursor: pointer;
+    font-size: 0.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1px;
+}
+
+#edit-info-btn:hover {
+    color: #ffc107;
+    background: rgba(255, 193, 7, 0.15);
+    border-color: rgba(255, 193, 7, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#close-panel:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#edit-info-btn:active,
+#close-panel:active {
+    transform: translateY(0);
+}
+
+.info-link-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.info-link-btn:hover {
+    background: rgba(255, 255, 255, 0.85);
+    /* Leggermente più opaco all'hover */
+    border-color: #FF7B00;
+    color: #FF7B00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-link-btn:active {
+    transform: translateY(0);
+}
+
+
+.tag {
+    display: inline-block;
+    border: 1px solid #555;
+    padding: 4px 10px;
+    margin: 5px 5px 0 0;
+    font-size: 10px;
+    border-radius: 20px;
+    color: #ccc;
+}
+
+/* Stato di default: tutto visibile */
+.map-element {
+    transition: opacity 0.4s ease;
+    opacity: 1;
+}
+
+/* Stato "spento": quando qualcosa è fuori dal focus */
+.map-element.faded {
+    opacity: 0.15 !important;
+}
+
+/* Stato "acceso": forza l'opacità a 1 per i nodi attivi e le loro keyword */
+.map-element.focused {
+    opacity: 1 !important;
+}
+
+.paper-node {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* DIAMANTI (Casi Studio) - Estetica Crystal Geometric */
+.casestudy-node {
+    stroke: rgba(255, 255, 255, 0.8);
+    stroke-width: 1px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.paper-group:hover .paper-node {
+    transform: scale(1.3);
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.info-card {
+    position: absolute;
+    width: 250px;
+    background: rgba(25, 25, 25, 0.55);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    color: white;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    pointer-events: all;
+    /* Permette di cliccare dentro la scheda */
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.info-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.close-card {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-card:hover {
+    color: white;
+}
+
+@keyframes breathe {
+    0% {
+        fill: #ffffff;
+    }
+
+    50% {
+        fill: #000000;
+    }
+
+    100% {
+        fill: #ffffff;
+    }
+}
+
+.breathe-node {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+/* Nodi CSS Transitions per Scalate Fludi */
+/* Nodi CSS Transitions per Scalate Fludi */
+.paper-node {
+    transition: fill 0.3s ease, filter 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+/* Stato Hover (Grigio + Glow + Scale) - Attivato dal gruppo invisibile */
+.paper-group:hover .paper-node {
+    fill: #bbb !important;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+/* Stato Selezionato Aura Forte */
+.selected-node .paper-node {
+    fill: white !important;
+    stroke: #111;
+    stroke-width: 2.5px;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+}
+
+/* Keyword CSS Transitions */
+.keyword-bg {
+    transition: fill 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.label-group:hover .keyword-bg {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Keyword Selezionata Aura */
+.selected-keyword .keyword-bg {
+    fill: #fff !important;
+    stroke: #111;
+    stroke-width: 1.5px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+.selected-keyword text {
+    fill: black !important;
+}
+
+/* Case Study (Diamond) Nodes */
+.casestudy-node {
+    transform: rotate(45deg);
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: fill 0.3s ease, filter 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.casestudy-group:hover .casestudy-node {
+    fill: #fff !important;
+    /* Diventa chiaro all'hover come richiesto */
+    transform: rotate(45deg) scale(1.15) !important;
+    /* Mantenere rotazione */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+.selected-node .casestudy-node {
+    fill: white !important;
+    stroke: #111;
+    stroke-width: 2.5px;
+    transform: rotate(45deg) scale(1.2);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
+}
+
+#info-area span:hover {
+    color: #333 !important;
+    transition: color 0.2s ease;
+}
+
+#reset-view {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #000;
+
+    /* Rendi il bottone quadrato e centra il simbolo */
+    width: 40px;
+    /* Larghezza fissa */
+    height: 40px;
+    /* Altezza fissa */
+    display: flex;
+    /* Usa flexbox per centrare */
+    justify-content: center;
+    /* Centra orizzontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+
+    font-size: 1.5rem;
+    /* Dimensione del simbolo più grande */
+    cursor: pointer;
+    border-radius: 20px;
+    /* Angoli leggermente arrotondati, ma non troppo */
+    z-index: 1000;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#reset-view:hover {
+    background: rgba(255, 255, 255, 0.45);
+    color: #000000;
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    /* Un'ombra sottile per l'hover */
+}
+
+/* Gestione CSS dei Link */
+line {
+    transition: stroke-width 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
+}
+
+/* Link Hover */
+line.hovered-link {
+    stroke-width: 3px !important;
+    stroke: rgba(255, 255, 255, 0.85) !important;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Definiamo lo stile della linea "attiva" (Animata e Luminosa) */
+line.focused-link {
+    stroke: #fff !important;
+    stroke-width: 2.5px !important;
+    stroke-dasharray: 6, 6;
+    animation: flow 0.6s linear infinite !important;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes flow {
+    from {
+        stroke-dashoffset: 24;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#tooltip {
+    position: fixed;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2000;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    transform: scale(0.95);
+    font-family: 'Outfit', sans-serif;
+    color: #1a1a1a;
+    max-width: 240px;
+    white-space: normal;
+    /* Permetti al testo di andare a capo */
+}
+
+.tooltip-title {
+    font-weight: 700;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    color: #111;
+}
+
+.tooltip-meta {
+    font-size: 0.68rem;
+    color: rgba(0, 0, 0, 0.55);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tooltip-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tooltip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TOOLTIP DARK THEME (Casi Studio) --- */
+#tooltip.dark-theme {
+    background: rgba(20, 20, 20, 0.85);
+    /* Sfondo scuro semitrasparente */
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #eee;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#tooltip.dark-theme .tooltip-title {
+    color: #fff;
+    /* Titolo bianco puro */
+}
+
+#tooltip.dark-theme .tooltip-meta,
+#tooltip.dark-theme .tooltip-area {
+    color: rgba(255, 255, 255, 0.6);
+    /* Testo secondario grigio chiaro */
+}
+
+#filter-container {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #000;
+    /* Testo nero richiesto base */
+    width: auto;
+    min-width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 20px;
+    z-index: 1000;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+#paper-search {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #000;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.15s ease;
+    width: 200px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#paper-search::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.7rem;
+}
+
+#paper-search:focus {
+    width: 280px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SEARCH DROPDOWN --- */
+.search-wrapper {
+    position: relative;
+    /* Necessario per posizionare il dropdown in modo assoluto rispetto all'input */
+}
+
+#search-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    /* Sotto l'input con un piccolo offset */
+    left: 0;
+    width: 350px;
+    /* Più largo della searchbar per far respirare i contenuti */
+    max-height: 400px;
+    background: rgba(255, 255, 255, 0.15);
+    /* Glassmorphism semitrasparente */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Bordo più visibile per staccarlo */
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    /* Clippa tutto dentro i bordi arrotondati - lo scroll è sull'inner wrapper */
+    z-index: 2000;
+    /* Sopra a quasi tutto */
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    /* Testo scuro per contrastare lo sfondo chiaro */
+
+    /* Animazione apparizione */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+/* Inner wrapper scrollabile - clippa la scrollbar dentro i border-radius del container padre */
+.dropdown-inner {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+#search-dropdown:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Intestazioni di categoria nel dropdown (es: PAPERS, KEYWORDS) */
+.dropdown-group-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 12px 15px 6px 15px;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Singolo elemento (Rich Snippet) */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    /* Allinea verticalmente (es. thumbnail a dx) */
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.15s ease;
+    gap: 12px;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item.selected,
+.dropdown-item.dropdown-item-active {
+    background: rgba(255, 255, 255, 0.5);
+    /* Hover e navigazione tastiera evidenziati allo stesso modo */
+}
+
+/* Struttura interna della card info */
+.dropdown-item-content {
+    flex: 1;
+    /* Prende tutto lo spazio disponibile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    /* Evita sbavamenti testi lunghi */
+}
+
+/* Pallino colore area */
+.dropdown-item-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    align-self: flex-start;
+    /* Allinea in alto rispetto al testo */
+    margin-top: 5px;
+    /* Compensa la line-height del titolo */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Titoli e testi nell'item */
+.dropdown-item-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.dropdown-item-meta {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Miniatura immagine a destra */
+.dropdown-item-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgba(0, 0, 0, 0.05);
+    /* Sfondo fallback se img non carica subito */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Messaggio di "Nessun risultato" */
+.dropdown-no-results {
+    padding: 20px 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+}
+
+/* Hover: sfumatura di background con il tracciamento del bordo nell'accent color */
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: var(--btn-color, #000);
+    border-color: var(--btn-color, rgba(255, 255, 255, 0.7));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px var(--btn-color, rgba(0, 0, 0, 0.1));
+}
+
+/* Active: forte enfasi cromatica */
+.filter-btn.active {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border: 2px solid var(--btn-color, #000) !important;
+    color: var(--btn-color, #000) !important;
+    font-weight: 700;
+    box-shadow: 0 0 6px var(--btn-color, rgba(0, 0, 0, 0.1)) !important;
+}
+
+/* --- TOGGLE SWITCH IOS STYLE --- */
+.switch-wrapper {
+    position: fixed;
+    bottom: 30px;
+    left: 85px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Container esterno del toggle: la pill glassmorphism stessa */
+.color-switch {
+    position: relative;
+    display: inline-block;
+    width: 58px;
+    /* larghezza della pill */
+    height: 40px;
+    /* stessa altezza di #reset-view */
+}
+
+.color-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Lo slider: la pill glassmorphism */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    border-radius: 40px;
+}
+
+/* Il thumb scorrevole */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.75);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ON State: il thumb prende il gradiente cosmico */
+input:checked+.slider {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+input:checked+.slider:before {
+    background: linear-gradient(135deg, #FF4D00, #ff00ff, #00d4ff);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Muove il thumb a destra quando attivo (70px - 32px thumb - 4px*2 padding = 30px) */
+input:checked+.slider:before {
+    transform: translateX(18px) translateY(-50%);
+    /* all gaps = 3px: inner 56px − 3 − 32 − 3 = 18px */
+    background: linear-gradient(135deg, #FF4D00, #ff00ff, #00d4ff);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+
+
+/* =========================================
+   UI AGGIUNTA PAPER (Pulsante e Modale)
+   ========================================= */
+
+#add-paper-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    /* LIQUID GLASS + NEUTRAL BLACK */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow:
+        inset 0px 4px 5px rgba(255, 255, 255, 0.1),
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.05);
+    animation: aura-pulse 3s infinite ease-in-out;
+}
+
+@keyframes aura-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+}
+
+#add-paper-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1) rotate(90deg);
+    color: #000;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    box-shadow:
+        inset 0px 4px 10px rgba(255, 255, 255, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+#add-paper-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(18, 18, 18, 0.5);
+    /* Sfondo blur meno scuro dietro il form */
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#add-paper-modal.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#add-paper-modal .modal-content {
+    background: rgba(30, 30, 30, 0.45);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    /* Riflesso superiore del vetro */
+    padding: 40px;
+    border-radius: 24px;
+    width: 95%;
+    max-width: 850px;
+    position: relative;
+    font-family: 'Outfit', sans-serif;
+    color: #f0f0f0;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    max-height: 95vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+#add-paper-modal.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+#close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+#close-modal:hover {
+    color: #fff;
+}
+
+#add-paper-form {
+    display: flex;
+    flex-direction: column;
+    /* rimozione gap per gestire con precisione matematica i margini degli elementi transition */
+}
+
+#new-title {
+    margin-bottom: 15px;
+}
+
+#add-paper-form input,
+#add-paper-form select,
+#add-paper-form textarea {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+    padding: 12px;
+    font-family: inherit;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect total width */
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#add-paper-form input:focus,
+#add-paper-form select:focus,
+#add-paper-form textarea:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.5);
+    /* Bianco leggero */
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    /* Glow quasi inesistente */
+}
+
+/* --- SINGOLA RIGA METADATA (Autore + Data) --- */
+.metadata-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.date-group {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.metadata-row input,
+.metadata-row select {
+    margin-bottom: 0 !important;
+}
+
+#new-author {
+    flex-grow: 1;
+}
+
+#new-day {
+    width: 55px !important;
+    text-align: center;
+}
+
+#new-month {
+    width: 120px !important;
+}
+
+#new-year {
+    width: 80px !important;
+    text-align: center;
+}
+
+#new-day::-webkit-outer-spin-button,
+#new-day::-webkit-inner-spin-button,
+#new-year::-webkit-outer-spin-button,
+#new-year::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+#add-paper-form select option {
+    background-color: #2c2c2c;
+    /* Fix for datalist dropdown bg */
+}
+
+.keyword-checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.80rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(10, 10, 10, 0.7);
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 2px 2px 2px 0;
+}
+
+.keyword-checkbox-label:hover {
+    transform: scale(1.02);
+}
+
+.keyword-checkbox-label input {
+    display: none;
+}
+
+.keyword-checkbox-label.selected {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+    /* Tolto il bagliore eccessivo da fermo */
+}
+
+.keyword-checkbox-label.selected:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+    /* Appena percettibile */
+}
+
+#submit-paper-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 10px 25px;
+    /* Più stretto orizzontalmente */
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    align-self: flex-end;
+    /* Allineato in basso a destra! */
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#submit-paper-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   UI LISTA PAPER (Pannello Laterale)
+   ========================================= */
+
+#open-list-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #000;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 900;
+    /* Sotto al pannello info-card (1000) */
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#open-list-btn:hover {
+    background: rgba(255, 255, 255, 0.45);
+    color: #000000;
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    height: calc(100vh - 40px);
+    background: rgba(255, 255, 255, 0.15);
+    /* Glassmorphism Chiaro */
+    /* Island Lighter Background */
+    backdrop-filter: blur(25px);
+    /* Strong Blur for glass look */
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    color: #333;
+    /* Testo Scuro per contrasto col vetro chiaro */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 2500;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Hide items slipping out of the rounded corners */
+    font-family: 'Outfit', sans-serif;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sidebar.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.sidebar-top-fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 15;
+    /* Sotto l'header interattivo (20), ma sopra la lista (10) */
+    pointer-events: none;
+    /* Lascia passare i clic alla ricerca/lista */
+
+    /* VERO BLUR GRADIENT */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* Maschera progressiva da completamente solido in alto a trasparente in basso */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 100%);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 15px 20px;
+    box-sizing: border-box;
+    z-index: 20;
+    background: transparent;
+}
+
+.close-sidebar-btn {
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #555;
+    transition: color 0.2s;
+    pointer-events: auto;
+    line-height: 1;
+    margin-left: 15px;
+    /* Spazio dalla searchbar */
+}
+
+#list-search-bar {
+    flex-grow: 1;
+    /* Prende tutto lo spazio disponibile accanto alla X */
+    margin: 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #000;
+    border-radius: 25px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+#list-search-bar::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#list-search-bar:focus {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Glassmorphism Sidebar Filter (3 items) */
+#sidebar-entity-filter {
+    margin: 0 26px 15px 20px !important;
+    /* Margine destro 26px: 20px (padding standard) + 6px (larghezza scrollbar) per combaciare perfettamente in larghezza con le list-card */
+    flex-shrink: 0;
+    z-index: 20;
+    /* Sta in cima ai list item che scrollano */
+}
+
+.glass-filter {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 50px !important;
+    /* Forma a pillola completa */
+    padding: 0 !important;
+    /* Rimosso il padding per gestire tutto con i margini dell'indicatore */
+    height: 32px;
+    /* Altezza fissa per coerenza matematica */
+    display: flex;
+    align-items: center;
+}
+
+.glass-filter label {
+    position: relative;
+    /* Indispensabile perché lo z-index funzioni */
+    flex: 1;
+    text-align: center;
+    padding: 0;
+    line-height: 32px;
+    /* Centra il testo nell'altezza fissa */
+    height: 100%;
+    font-size: 0.7rem !important;
+    /* !important necessario perché sovrascritto da .segmented-control label a fine file */
+    font-weight: 400 !important;
+    color: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s ease;
+    border-radius: 50px;
+    /* Forma a pillola anche per le label invisibili */
+    font-weight: 400;
+    /* Più leggero */
+}
+
+.glass-filter input[type="radio"]:checked+label {
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-weight: 600;
+    text-shadow: none;
+}
+
+.filter-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    /* Esattamente 4px da ogni lato del bordo contenitore */
+    width: calc((100% - 8px) / 3) !important;
+    /* (100% - margin_sx - margin_dx) / 3 */
+    /* Vetro su vetro: semitrasparente più denso */
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 50px !important;
+    /* Pillola rotonda! */
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#filter-all:checked~.filter-indicator {
+    transform: translateX(0);
+}
+
+#filter-paper:checked~.filter-indicator {
+    transform: translateX(100%);
+}
+
+#filter-casestudy:checked~.filter-indicator {
+    transform: translateX(200%);
+}
+
+#paper-list-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 130px 20px 30px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+
+/* Stile CARD ad alto contrasto del singolo elemento della lista */
+.list-item {
+    position: relative;
+    overflow: hidden;
+    /* Taglia via sbavature fuori dal border-radius */
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    box-shadow: none;
+    cursor: pointer;
+    /* Indica che la card è cliccabile */
+}
+
+.list-item:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: scale(1.015);
+    z-index: 5;
+    /* Assicura che la card ingrandita stia sopra le altre */
+}
+
+.list-item-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+    /* Titolo scuro come nel dropdown */
+    letter-spacing: 0px;
+}
+
+.list-item.casestudy-card {
+    border: 4px solid #b0b0b0;
+    background: rgba(240, 240, 240, 0.7);
+    border-radius: 14px;
+}
+
+.list-item-author-year {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.6);
+    /* Testo metadati scuro come nel dropdown */
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* OVERLAY CON BOTTONI AZIONE - SUPER SEMPLICE */
+.list-item-actions {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.list-item:hover .list-item-actions {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.action-btn {
+    background: #fff;
+    /* Bottoni bianchi per leggerezza */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #333;
+    /* Testo bottoni scuro */
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    font-family: inherit;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.edit-btn {
+    color: #333;
+}
+
+.edit-btn:hover {
+    color: #ffc107;
+    background: rgba(255, 193, 7, 0.2);
+    border-color: rgba(255, 193, 7, 0.5);
+}
+
+/* Cestino standard */
+.delete-btn {
+    color: #333;
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.2);
+    border-color: rgba(220, 53, 69, 0.5);
+}
+
+/* Cestino ARMATO (Primo Click: Conferma) */
+.delete-btn.confirm-mode {
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border-color: #dc3545;
+}
+
+.delete-btn.confirm-mode:hover {
+    background-color: #c82333;
+}
+
+/* =========================================
+   ANIMAZIONE E VISIBILITÀ FORM MODALE (GRID)
+   ========================================= */
+/* Nuova gestione animazione globale: Dissolve + Slide */
+#add-paper-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 0;
+    align-items: start;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Stato di transizione "pure dissolve" attivato da JS */
+#add-paper-form.switching-mode {
+    opacity: 0;
+    transform: translateY(3px);
+    /* Slittamento minimo per fluidità */
+}
+
+.form-anim {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    /* Transizione istantanea per la struttura, gestita dal fade globale del form */
+    transition: max-height 0s, opacity 0.2s ease;
+}
+
+/* Elementi a larghezza piena per default */
+.segmented-control,
+#submit-paper-btn {
+    grid-column: 1 / -1;
+}
+
+/* Assegnazione specifica per Paper e Case Study (Richiesta Utente) */
+#add-paper-modal[data-mode="paper"] #title-color-wrapper,
+#add-paper-modal[data-mode="paper"] #paper-author-date-row,
+#add-paper-modal[data-mode="paper"] #paper-area-row,
+#add-paper-modal[data-mode="paper"] #paper-url-row,
+#add-paper-modal[data-mode="paper"] #paper-images-row,
+#add-paper-modal[data-mode="casestudy"] #title-color-wrapper,
+#add-paper-modal[data-mode="casestudy"] #paper-author-date-row,
+#add-paper-modal[data-mode="casestudy"] #paper-area-row,
+#add-paper-modal[data-mode="casestudy"] #paper-url-row,
+#add-paper-modal[data-mode="casestudy"] #paper-images-row {
+    grid-column: 1;
+    /* Colonna Sinistra */
+}
+
+#add-paper-modal[data-mode="paper"] #paper-info-row,
+#add-paper-modal[data-mode="paper"] #paper-keywords-row,
+#add-paper-modal[data-mode="casestudy"] #paper-info-row,
+#add-paper-modal[data-mode="casestudy"] #paper-keywords-row {
+    grid-column: 2;
+    /* Colonna Destra */
+}
+
+/* Ottimizzazione altezze: la Descrizione occupa tutta la colonna destra dall'alto */
+#add-paper-modal[data-mode="paper"] #paper-info-row,
+#add-paper-modal[data-mode="casestudy"] #paper-info-row {
+    grid-row: 1 / span 5;
+    /* Dall'inizio (Titolo) fino a fine colonna sinistra (Immagini) */
+}
+
+/* Forza il textarea a riempire tutto lo spazio disponibile nell'altezza */
+#add-paper-modal[data-mode="paper"] #paper-info-row #new-info,
+#add-paper-modal[data-mode="casestudy"] #paper-info-row #new-info {
+    height: 100%;
+    min-height: 200px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#add-paper-modal[data-mode="paper"] #title-color-wrapper {
+    margin-bottom: 15px;
+}
+
+/* === MODALITÀ AREA: Nome+Colore (Wrapper) a sinistra, Chip a destra === */
+#add-paper-modal[data-mode="area"] #title-color-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+#add-paper-modal[data-mode="area"] #new-title {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+#add-paper-modal[data-mode="area"] #chip-management-section {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    overflow-y: auto;
+    max-height: 300px;
+    padding-top: 6px;
+    /* Align with input height center */
+}
+
+/* === MODALITÀ KEYWORD: Campi a sinistra, Chip a destra === */
+#add-paper-modal[data-mode="keyword"] #chip-management-section {
+    grid-column: 2;
+    /* Spostato a destra */
+    grid-row: 1 / span 4;
+    overflow-y: auto;
+    max-height: 300px;
+    padding-top: 6px;
+    /* Align with input height center */
+}
+
+/* Left column: Nome, Area, Info */
+#add-paper-modal[data-mode="keyword"] #title-color-wrapper {
+    grid-column: 1;
+    /* Spostato a sinistra */
+    grid-row: 1;
+    margin-bottom: 15px;
+}
+
+#add-paper-modal[data-mode="keyword"] #paper-area-row {
+    grid-column: 1;
+    /* Spostato a sinistra */
+    grid-row: 2;
+    margin-bottom: 15px;
+}
+
+/* Info occupa il doppio: dalla riga 3 in giù, colonna sinistra */
+#add-paper-modal[data-mode="keyword"] #paper-info-row {
+    grid-column: 1;
+    /* Spostato a sinistra */
+    grid-row: 3 / span 2;
+}
+
+#add-paper-modal[data-mode="keyword"] #paper-info-row #new-info {
+    height: 100%;
+    min-height: 120px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+/* Modalità Paper e Caso Studio: campi Paper e condivisi */
+#add-paper-modal[data-mode="paper"] .paper-only,
+#add-paper-modal[data-mode="paper"] .paper-kw-only,
+#add-paper-modal[data-mode="casestudy"] .paper-only,
+#add-paper-modal[data-mode="casestudy"] .paper-kw-only {
+    max-height: 500px;
+    opacity: 1;
+    margin-bottom: 15px;
+    overflow: visible;
+    /* Per i menu a tendina */
+}
+
+/* Modalità Keyword: campi Condivisi e container Chips */
+#add-paper-modal[data-mode="keyword"] .paper-kw-only,
+#add-paper-modal[data-mode="keyword"] .admin-only {
+    max-height: 500px;
+    opacity: 1;
+    margin-bottom: 15px;
+    overflow: visible;
+}
+
+/* Modalità Area: container Chips e fine */
+#add-paper-modal[data-mode="area"] .admin-only,
+#add-paper-modal[data-mode="area"] .area-only {
+    max-height: 500px;
+    opacity: 1;
+    margin-bottom: 15px;
+    overflow: visible;
+}
+
+/* =========================================
+   CHIP GESTIONALI (Area / Keyword)
+   ========================================= */
+#entity-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+#new-keywords-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.admin-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    padding: 8px 12px;
+    /* Leggermente più cicciotte stile reference */
+    border-radius: 20px;
+    font-size: 0.80rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(10, 10, 10, 0.7);
+    color: #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Sarà sovrascritto dai colori base */
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-chip:hover {
+    transform: scale(1.02);
+}
+
+.admin-chip .chip-label {
+    pointer-events: none;
+    /* Clicca sull'intero chip */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pseudo-icona cerchietto colorato rimossa come richiesto dall'utente */
+
+/* Tasto X delete CENTRATO nell'hover (dissolvenza in rosso totale) */
+.admin-chip .chip-delete {
+    position: absolute;
+    inset: 0;
+    /* Si spalma su tutto il bottone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+}
+
+.admin-chip:hover .chip-delete {
+    opacity: 1;
+}
+
+/* Stato conferma 2° tap - Rosso fisso e Scritta CONFERMA */
+.admin-chip .chip-delete.confirm-mode {
+    background: #dc3545;
+    /* Pieno e acceso */
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 1;
+}
+
+/* Estetica Specifica Keyword e Area */
+.admin-chip.keyword-chip,
+.admin-chip.area-chip {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: none;
+}
+
+.admin-chip:hover {
+    transform: scale(1.02);
+    border-color: transparent !important;
+    color: #fff !important;
+}
+
+.admin-chip.keyword-chip:hover,
+.admin-chip.area-chip:hover {
+    border-color: transparent !important;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   SEGMENTED CONTROL (Modale Universale)
+   ========================================= */
+.segmented-control {
+    display: flex;
+    position: relative;
+    background: rgba(15, 15, 15, 0.4);
+    border-radius: 20px;
+    padding: 4px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.segmented-control input[type="radio"] {
+    display: none;
+    /* Nasconde il pallino nativo */
+}
+
+.segmented-control label {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: #888;
+    cursor: pointer;
+    z-index: 2;
+    /* Stanno sopra il cursore blu animato */
+    transition: color 0.3s ease;
+    border-radius: 16px;
+    font-weight: 500;
+}
+
+/* Glow testo su scelta attiva */
+.segmented-control input[type="radio"]:checked+label {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Il blocco "Cursore" che scorre sotto i form */
+.selection-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    width: calc(25% - 2px);
+    /* 4 Tasti */
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Bounce elastico leggero iOS */
+}
+
+/* Spostamenti del carrello basati sull'input radio checkato in DOM */
+#type-paper:checked~.selection-indicator {
+    transform: translateX(0);
+}
+
+#type-keyword:checked~.selection-indicator {
+    transform: translateX(100%);
+}
+
+#type-area:checked~.selection-indicator {
+    transform: translateX(200%);
+}
+
+#type-casestudy:checked~.selection-indicator {
+    transform: translateX(300%);
+}
+
+/* =========================================
+   SIDEBAR TABS (Pannello Gestione)
+   ========================================= */
+.sidebar-tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.sidebar-tab {
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.sidebar-tab:hover {
+    color: #aaa;
+}
+
+.sidebar-tab.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Linea indicatore attiva sotto alla Tab */
+.sidebar-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* =========================================
+   GALLERIA MULTIPLA & LIGHTBOX
+   ========================================= */
+#info-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gallery-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 4000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#lightbox-overlay.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+#lightbox-overlay.show #lightbox-img {
+    transform: scale(1);
+}
+
+#close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+    font-weight: 100;
+}
+
+#close-lightbox:hover {
+    color: #ccc;
+}
+
+/* Customizzazione Tasto Upload Nativo di Chome/Safari/Firex */
+#new-images::file-selector-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+    margin-right: 10px;
+}
+
+#new-images::file-selector-button:hover,
+#area-color-row:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   BARRA SELEZIONE PAGINE (Dynamic Pills)
+========================================= */
+#page-bar {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1500;
+    font-family: 'Outfit', sans-serif;
+    transition: box-shadow 0.3s ease;
+}
+
+#page-bar:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+#page-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Singola Pillola */
+.page-pill {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 32px;
+    max-width: 32px;
+    min-width: 32px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.65);
+    transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+
+/* Numero della pillola */
+.page-pill .pill-number {
+    font-weight: 700;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+}
+
+/* Nome della pagina (nascosto di default, appare su hover/active) */
+.page-pill .pill-name {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.25s ease,
+        margin-left 0.3s ease;
+    margin-left: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+/* Input rinomina (nascosto normalmente) */
+.page-pill .pill-rename-input {
+    display: none;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: inherit;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.page-pill .pill-rename-input.visible {
+    display: inline-block;
+}
+
+/* Bottone X per eliminare (nascosto di default) */
+.page-pill .pill-delete {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 0.65rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: max-width 0.3s ease, opacity 0.2s ease, color 0.15s ease, margin-left 0.3s ease;
+    margin-left: 0;
+    flex-shrink: 0;
+}
+
+.page-pill .pill-delete:hover {
+    color: #dc3545;
+}
+
+/* --- STATI: Hover e Active --- */
+
+/* Hover: espandi il nome */
+.page-pill:hover .pill-name,
+.page-pill.active .pill-name {
+    max-width: 150px;
+    opacity: 1;
+    margin-left: 5px;
+}
+
+/* Hover: mostra la X */
+.page-pill:hover .pill-delete,
+.page-pill.active .pill-delete {
+    max-width: 20px;
+    opacity: 1;
+    margin-left: 6px;
+}
+
+/* Hover generico: sfondo più chiaro, espandi e aggiungi padding */
+.page-pill:hover {
+    max-width: 200px;
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.85);
+}
+
+/* Active: la pagina attualmente selezionata */
+.page-pill.active {
+    max-width: 200px;
+    padding: 0 12px;
+    background: #ffffff;
+    /* Sfondo bianco puro */
+    border-color: rgba(0, 0, 0, 0.8);
+    /* Bordo scuro */
+    color: #000000;
+    /* Testo nero a contrasto */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.page-pill.active .pill-delete {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.page-pill.active .pill-delete:hover {
+    color: #ff6b6b;
+}
+
+/* --- Bottone Aggiungi (+) --- */
+#page-add-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px dashed rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+#page-add-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.4);
+    color: #000;
+    transform: scale(1.1);
+}
+
+#page-add-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- Transizione Fade per la mappa al cambio pagina --- */
+#map-container {
+    transition: opacity 0.3s ease;
+}
+
+#map-container.fade-out {
+    opacity: 0;
+}
+
+/* =========================================
+   MODALE CUSTOM (Prompt / Confirm)
+========================================= */
+#custom-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 120px;
+}
+
+#custom-modal-overlay.visible {
+    display: flex;
+    animation: modalFadeIn 0.25s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#custom-modal {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 18px 22px;
+    min-width: 280px;
+    max-width: 340px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    color: #1a1a1a;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+#custom-modal-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: 0.2px;
+}
+
+#custom-modal-body {
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    color: rgba(0, 0, 0, 0.55);
+    line-height: 1.45;
+}
+
+#custom-modal-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    color: #1a1a1a;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+#custom-modal-input:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+#custom-modal-input.hidden {
+    display: none;
+}
+
+#custom-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+#custom-modal-cancel,
+#custom-modal-ok {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+#custom-modal-cancel {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#custom-modal-cancel:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #1a1a1a;
+}
+
+#custom-modal-ok {
+    background: rgba(0, 0, 0, 0.08);
+    color: #1a1a1a;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#custom-modal-ok:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+#custom-modal-ok.danger {
+    background: rgba(220, 50, 50, 0.1);
+    border-color: rgba(220, 50, 50, 0.25);
+    color: #c0392b;
+}
+
+#custom-modal-ok.danger:hover {
+    background: rgba(220, 50, 50, 0.2);
+    color: #a93226;
+}
+
+/* --- PLACEHOLDER PAGINA VUOTA --- */
+#empty-page-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 30px 40px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    pointer-events: none;
+    /* Non blocca i click sottostanti/drag sulla mappa vuota */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+#empty-page-placeholder.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   STATIC MODE (READ-ONLY) EXCEPTIONS
+   ========================================== */
+body.static-mode .action-btn,
+body.static-mode .pill-rename-input,
+body.static-mode .pill-delete,
+body.static-mode #page-add-btn,
+body.static-mode #add-paper-btn,
+body.static-mode #edit-info-btn,
+body.static-mode #empty-page-placeholder {
+    display: none !important;
+}
