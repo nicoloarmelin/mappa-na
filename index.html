@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <title>map LS/MQ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="filter-container">
+        <!-- Nuova Searchbar -->
+        <div class="search-wrapper">
+            <input type="search" id="paper-search" placeholder="Cerca titolo, autore, keyword..." autocomplete="off">
+            <div id="search-dropdown" class="search-dropdown hidden"></div>
+        </div>
+        <!-- I bottoni verranno iniettati qui da map.js basandosi su data.areas -->
+        <div id="dynamic-filters" style="display:flex; gap: 8px;"></div>
+    </div>
+
+    <div id="map-container">
+        <!-- Placeholder visibile solo quando non ci sono nodi -->
+        <div id="empty-page-placeholder" class="hidden">
+            Questa pagina è vuota.<br>
+            Clicca <strong>+</strong> per aggiungere il primo elemento.
+        </div>
+    </div>
+
+    <div id="info-panel">
+        <div id="panel-content">
+            <h2 id="info-title" style="margin-top:0; font-size: 1.2rem;">Seleziona un nodo</h2>
+            <p id="info-year" style="font-size: 0.9em; margin-top: 5px;"></p>
+            <p id="info-area" style="text-transform: uppercase"></p>
+            <p id="info-desc" style="line-height: 1.6; font-size: 0.9rem; margin-top: 15px;"></p>
+            <div id="info-tags"></div>
+            <div id="info-gallery"></div>
+        </div>
+        <div id="info-actions">
+            <div id="info-link-container"></div>
+            <div style="display:flex; gap: 8px;">
+                <div id="edit-info-btn">MODIFICA ✎</div>
+                <div id="close-panel">CHIUDI ✖</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reset-view">☉</div>
+
+    <!-- Pulsante per aggiungere nuovo paper (Liquid Glass) -->
+    <div id="add-paper-btn">+ </div>
+
+    <!-- Bottone per aprire la Lista -->
+    <div id="open-list-btn" title="Apri Lista Paper">✤</div>
+
+    <!-- Modale inserimento paper -->
+    <div id="add-paper-modal">
+        <div class="modal-content" id="form-content-animator">
+            <span id="close-modal">&times;</span>
+            <h2 id="modal-title" style="margin-top:0">Aggiungi Elemento</h2>
+
+            <!-- Segmented Control IOS Style -->
+            <div class="segmented-control">
+                <input type="radio" name="entity-type" id="type-paper" value="paper" checked>
+                <label for="type-paper">Paper</label>
+
+                <input type="radio" name="entity-type" id="type-keyword" value="keyword">
+                <label for="type-keyword">Keyword</label>
+
+                <input type="radio" name="entity-type" id="type-area" value="area">
+                <label for="type-area">Area Tematica</label>
+
+                <input type="radio" name="entity-type" id="type-casestudy" value="casestudy">
+                <label for="type-casestudy">Caso Studio</label>
+
+                <div class="selection-indicator"></div>
+            </div>
+
+            <form id="add-paper-form" data-mode="paper">
+                <!-- CONTENITORE GESTIONALE CHIP (visibile in modalità Keyword/Area) -->
+                <div class="entity-dependent admin-only form-anim" id="chip-management-section">
+                    <div id="entity-chips-container" style="margin-bottom: 15px;">
+                        <!-- Iniettati i chip colorati con le X di eliminazione hover da map.js -->
+                    </div>
+                </div>
+
+                <!-- Il campo nascosto per l'ID in caso di UPDATE -->
+                <input type="hidden" id="edit-entity-id" value="">
+
+                <!-- RIGA TITOLO + COLORE (Wrapper per gestione layout condizionale) -->
+                <div id="title-color-wrapper">
+                    <input type="text" id="new-title" placeholder="Nome o Titolo (es. Bio-Synthetic Design o Tech)"
+                        required>
+
+                    <!-- Quadrato Colore Semplice (Solo Area) -->
+                    <div class="entity-dependent area-only form-anim" id="area-color-row"
+                        style="width: 25px; height: 25px; flex-shrink: 0; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; overflow: hidden; margin: 0;">
+                        <input type="color" id="new-area-color" value="#7B68EE"
+                            style="width: 300%; height: 300%; border: none; background: none; cursor: pointer; padding: 0; outline: none; transform: scale(3);">
+                    </div>
+                </div>
+
+                <div class="entity-dependent paper-only form-anim metadata-row" id="paper-author-date-row">
+                    <input type="text" id="new-author" placeholder="Autore/i (es. O. Oxman)">
+                    <div class="date-group">
+                        <input type="number" id="new-day" placeholder="GG" min="1" max="31">
+                        <select id="new-month">
+                            <option value="" disabled selected>Mese</option>
+                            <option value="Gennaio">Gennaio</option>
+                            <option value="Febbraio">Febbraio</option>
+                            <option value="Marzo">Marzo</option>
+                            <option value="Aprile">Aprile</option>
+                            <option value="Maggio">Maggio</option>
+                            <option value="Giugno">Giugno</option>
+                            <option value="Luglio">Luglio</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Settembre">Settembre</option>
+                            <option value="Ottobre">Ottobre</option>
+                            <option value="Novembre">Novembre</option>
+                            <option value="Dicembre">Dicembre</option>
+                        </select>
+                        <input type="number" id="new-year" placeholder="YYYY">
+                    </div>
+                </div>
+
+                <div class="entity-dependent paper-kw-only form-anim" id="paper-area-row">
+                    <select id="new-area">
+                        <option value="" disabled selected>Seleziona Area</option>
+                        <!-- Popolate da map.js (data.areas) -->
+                    </select>
+                </div>
+
+                <div class="entity-dependent paper-only form-anim" id="paper-url-row">
+                    <input type="url" id="new-url" placeholder="URL Link (opzionale)">
+                </div>
+
+                <div class="entity-dependent paper-kw-only form-anim" id="paper-info-row">
+                    <textarea id="new-info" placeholder="Descrizione / Info" rows="3"></textarea>
+                </div>
+
+                <div class="entity-dependent paper-only form-anim" id="paper-images-row">
+                    <p style="font-size: 0.9em; margin-bottom: 5px;">Carica Immagini (opzionale):</p>
+                    <input type="file" id="new-images" name="images" accept="image/*" multiple>
+                </div>
+
+                <div class="entity-dependent paper-only form-anim" id="paper-keywords-row">
+                    <p style="font-size: 0.9em; margin-bottom: 5px;">Keyword collegate (seleziona):</p>
+                    <div id="new-keywords-container" style="margin-bottom: 15px;">
+                        <!-- Verranno popolate dinamicamente da JS per permettere collegamenti incrociati -->
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-paper-btn">SALVA</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Pannello Laterale Lista Paper -->
+    <div id="paper-list-sidebar" class="sidebar">
+        <!-- Elemento di background per il fade progressivo (solo estetica) -->
+        <div class="sidebar-top-fade"></div>
+
+        <!-- Nuovo Header compatto -->
+        <div class="sidebar-header"
+            style="display: flex; align-items: center; gap: 10px; padding: 20px 20px 15px 20px; background: transparent; z-index: 40; position: relative;">
+            <input type="text" id="list-search-bar" placeholder="Cerca database...">
+            <span class="close-sidebar-btn" style="flex-shrink: 0;">&times;</span>
+        </div>
+
+        <!-- Nuovo Filtro Glassmorphism iOS Style -->
+        <div id="sidebar-entity-filter" class="segmented-control glass-filter"
+            style="margin: 0 15px 15px 15px; position: relative;">
+            <input type="radio" name="list-filter" id="filter-all" value="all" checked>
+            <label class="s-filter-btn active" data-filter="all" for="filter-all">TUTTI</label>
+
+            <input type="radio" name="list-filter" id="filter-paper" value="paper">
+            <label class="s-filter-btn" data-filter="paper" for="filter-paper">PAPER</label>
+
+            <input type="radio" name="list-filter" id="filter-casestudy" value="casestudy">
+            <label class="s-filter-btn" data-filter="casestudy" for="filter-casestudy">CASI STUDIO</label>
+
+            <div class="selection-indicator filter-indicator"></div>
+        </div>
+
+        <div id="paper-list-content">
+            <!-- I dati verranno iniettati dinamicamente da renderList() in base alla Tab attiva -->
+        </div>
+    </div>
+
+    <!-- Lightbox per Immagini -->
+    <div id="lightbox-overlay">
+        <span id="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="">
+    </div>
+
+    <!-- Barra Selezione Pagine (Dynamic Pills) -->
+    <div id="page-bar">
+        <div id="page-tabs">
+            <!-- Le pillole verranno iniettate dinamicamente da map.js -->
+        </div>
+        <div id="page-add-btn" title="Nuova Pagina">+</div>
+    </div>
+    <!-- Modale Custom (sostituisce prompt/confirm) -->
+    <div id="custom-modal-overlay">
+        <div id="custom-modal">
+            <div id="custom-modal-title"></div>
+            <div id="custom-modal-body"></div>
+            <input type="text" id="custom-modal-input" placeholder="" />
+            <div id="custom-modal-actions">
+                <button id="custom-modal-cancel">Annulla</button>
+                <button id="custom-modal-ok">Conferma</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="map.js"></script>
+
+</body>
+
+</html>
