@@ -1,12 +1,404 @@
 {
     "areas": [
         {
-            "name": "sisi",
-            "color": "#7b68ee"
+            "name": "Validation",
+            "color": "#1cceba"
+        },
+        {
+            "name": "Interaction Systems",
+            "color": "#1783e8"
+        },
+        {
+            "name": "Cognitive Frameworks",
+            "color": "#e59915"
         }
     ],
-    "keywords": [],
-    "papers": [],
-    "caseStudies": [],
-    "links": []
+    "keywords": [
+        {
+            "id": "k_custom_1774002417379",
+            "label": "Divergent Thinking",
+            "area": "Cognitive Frameworks",
+            "info": "Il **Pensiero Divergente** è un processo cognitivo volto alla generazione di un'ampia gamma di soluzioni creative partendo da un singolo punto di stimolo.\n\n- **Esplorazione Libera**: Non segue un percorso lineare, ma si ramifica in molteplici direzioni per mappare l'intero spazio delle possibilità.\n- **Quantità e Varietà**: L'obiettivo primario è la fluidità ideativa, rimandando il giudizio critico a una fase successiva del design.\n- **Motore dell'Innovazione**: Funge da antidoto alla ripetizione di modelli già noti, permettendo la scoperta di connessioni inaspettate."
+        },
+        {
+            "id": "k_custom_1774002761726",
+            "label": "Design Fixation",
+            "area": "Cognitive Frameworks",
+            "info": "La **Fissazione Creativa** rappresenta un limite cognitivo in cui il progettista rimane ancorato a esempi preesistenti o a soluzioni familiari.\n\n- **Vincolo Mentale**: Si manifesta come l'incapacità di \"disimparare\" schemi consolidati, limitando la ricerca a ciò che è già noto.\n- **Effetto Barriera**: Agisce come un filtro che oscura soluzioni potenzialmente migliori ma distanti dai riferimenti iniziali.\n- **Sfida Progettuale**: Superare la fissazione richiede tecniche di defamiliarizzazione o l'inserimento di stimoli esterni generati dall'IA."
+        },
+        {
+            "id": "k_custom_1774002792402",
+            "label": "Human-AI Co-Creation",
+            "area": "Interaction Systems",
+            "info": "La **Co-Creatività** definisce un modello di lavoro in cui l'essere umano e l'intelligenza artificiale operano come partner creativi di pari dignità.\n\n- **Simbiosi Creativa**: La macchina non è un semplice strumento esecutivo, ma un agente capace di proporre variazioni e stimoli originali.\n- **Ruoli Dinamici**: L'uomo agisce come curatore e guida strategica, mentre l'IA espande le capacità di calcolo e generazione logica.\n- **Nuova Autorialità**: Questo rapporto mette in discussione il concetto tradizionale di autore, spostandolo verso una collaborazione ibrida."
+        },
+        {
+            "id": "k_custom_1774002814998",
+            "label": "Design Intelligence",
+            "area": "Interaction Systems",
+            "info": "La **Design Intelligence** è l'integrazione di sistemi computazionali evoluti e analisi dati all'interno del flusso di lavoro progettuale 4.0.\n\n- **Progettazione Augmentata**: Utilizza algoritmi per ottimizzare le prestazioni tecniche e la fattibilità industriale nelle fasi preliminari.\n- **Approccio Data-Driven**: Le scelte estetiche e funzionali vengono supportate da evidenze oggettive derivate dall'elaborazione di grandi volumi di dati.\n- **Efficienza Predittiva**: Mira a ridurre i tempi di iterazione tra concetto e produzione, rendendo il design un processo più accurato."
+        },
+        {
+            "id": "k_custom_1774002834421",
+            "label": "Computational Empathy",
+            "area": "Interaction Systems",
+            "info": "L'**Empatia Computazionale** si riferisce alla capacità di un sistema di riconoscere, interpretare e reagire agli stati emotivi e cognitivi dell'utente.\n\n- **Affective Computing**: Utilizza l'analisi del comportamento per rilevare se l'utente si trova in uno stato di frustrazione, ispirazione o flow.\n- **Interfaccia Adattiva**: Il sistema modifica la propria risposta o l'ambiente di lavoro per supportare meglio lo stato psicologico del designer.\n- **Umanizzazione**: Cerca di colmare il divario comunicativo tra la logica binaria della macchina e la sensibilità complessa dell'uomo."
+        },
+        {
+            "id": "k_custom_1774002921969",
+            "label": "Experimental Case Studies",
+            "area": "Validation",
+            "info": "Questa categoria raccoglie la **dimostrazione pratica** delle teorie attraverso prototipi, strumenti di test e applicazioni concettuali.\n\n- **Dal Concetto alla Prova**: Rappresenta il momento in cui l'ipotesi creativa viene testata in un ambiente controllato (simulazione o prototipo).\n- **Strumentazione Sperimentale**: Include lo sviluppo di tool specifici creati appositamente per validare nuove modalità di interazione.\n- **Documentazione del Risultato**: Trasforma l'esplorazione teorica in conoscenza applicabile, replicabile e scientificamente documentata."
+        }
+    ],
+    "papers": [
+        {
+            "id": "p_custom_1774003622977",
+            "title": "Evaluating Creativity in Computational Co-Creative Systems",
+            "author": "Pegah Karimi, Kazjon Grace, Mary Lou Maher, Nicholas Davis",
+            "year": "28 Luglio 2018",
+            "area": "Cognitive Frameworks",
+            "url": "https://arxiv.org/abs/1807.09886",
+            "info": "> **AI Summary: Abstract**\n> L'articolo propone un framework per valutare i sistemi co-creativi basato su quattro domande guida (chi, cosa, quando e come). Gli autori suggeriscono di integrare l'**auto-valutazione dell'agente IA** per evolvere da semplici strumenti di supporto a partner creativi intenzionali.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\nL'articolo introduce un framework per confrontare la valutazione della creatività tra sistemi co-creativi, autonomi e strumenti di supporto. Definendo chi, cosa, quando e come valutare, è possibile trasferire metodologie tra diverse aree della creatività computazionale.\n\nL'analisi dei sistemi attuali rivela una forte focalizzazione sulla **user experience**. Molti modelli operano ancora come semplici estensioni degli strumenti di supporto, sebbene includano contributi proattivi da parte del computer.\n\n**Differenze Chiave**\nRispetto ai classici strumenti di supporto, i sistemi co-creativi introducono il potenziale per l'**auto-valutazione** dell'agente. L'IA può così guidare l'utente verso specifiche aree dello spazio delle possibilità basandosi sulla propria percezione del prodotto. Rispetto ai sistemi autonomi, la co-creatività beneficia dell'interazione umana, richiedendo trasparenza e strategie come l'**AI spiegabile** (XAI) per comunicare la logica delle scelte computazionali.\n\n**Una Nuova Frontiera per la Ricerca**\nPoiché la co-creatività è una collaborazione e non il risultato di un singolo agente, le metriche HCI o di creatività computazionale isolate risultano insufficienti. Emerge quindi la necessità di unire **usabilità e creatività** per sviluppare agenti dotati di auto-consapevolezza.\n\n**Quando avviene la valutazione?**\nLa valutazione può essere formativa (durante il processo) o sommativa (post-processo). Nella co-creatività, la valutazione formativa è cruciale poiché i protoartefatti sono condivisi: utente e IA possono valutare vicendevolmente l'output per guidare la sessione in tempo reale.\n\n**Valutare la Co-Creatività Computazionale**\nLa valutazione resta un quesito aperto fondamentale. Nonostante i progressi, non esiste ancora una metrica universale per misurare l'efficacia di questi sistemi collaborativi."
+        },
+        {
+            "id": "p_custom_1774004181747",
+            "title": "Designing Creative AI Partners with COFI: A Framework forModeling Interaction in Human-AI Co-Creative Systems",
+            "author": "Jeba Rexwana, Mary Lou Maher",
+            "year": "Ottobre 2023",
+            "area": "Cognitive Frameworks",
+            "url": "https://dl.acm.org/doi/epdf/10.1145/3519026",
+            "info": "> **AI Summary: Abstract**\n> Il paper introduce il framework **COFI** per modellare l'interaction design nei sistemi co-creativi, spostando il focus dalle sole capacità dell'IA alle dinamiche di partnership. Attraverso l'analisi di 92 sistemi, lo studio identifica la necessità di una comunicazione bidirezionale più profonda per trasformare l'IA da semplice esecutore a vero partner creativo.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\nL'architettura del framework COFI si articola su due dimensioni: la gestione della **relazione sociale** tra i collaboratori e l'interazione funzionale con l'artefatto. Il modello mappa i flussi comunicativi (intenzionali, consequenziali e di feedback) evidenziando come la trasparenza decisionale sia l'elemento chiave per una collaborazione efficace.\n\nI tre tipi di \"Colleghi IA\" oggi esistenti (img1):\n\nIn riferimento alla img1:\n> **Cluster 1: L'Esecutore Compiacente**\n> Modello gerarchico dove l'IA funge da assistente silenzioso. Riceve input e genera risultati automatizzando il lavoro faticoso, senza mai sfidare o migliorare l'idea originale dell'utente.\n> \n> **Cluster 2: L'Improvvisatore**\n> Partner dinamico che opera in tempo reale. Reagisce istantaneamente alle azioni umane, creando un'esperienza spontanea tipica delle performance dal vivo.\n> \n> **Cluster 3: Il Mentore**\n> Rappresenta il partner più evoluto, capace di valutare il lavoro e offrire critiche costruttive. Analizza il processo per proporre alternative strategiche e strade inesplorate.\n\n**Cosa manca alle IA attuali? (Conclusioni)**\nLo studio rivela che le IA attuali sono ancora \"unidirezionali\":\n* **Troppo silenzio**: L'82% delle IA non spiega perché ha fatto una certa scelta.\n* **Troppa rigidità**: Quasi tutte aspettano il loro \"turno\" invece di agire in modo spontaneo.\n* **Mancanza di Teoria della Mente**: L'IA non osserva i segnali involontari (sguardo, stress), ignorando se l'utente è bloccato o soddisfatto.\n\nPer raggiungere una vera partnership, è necessario potenziare la comunicazione da IA a uomo, specialmente seguendo il profilo del **Cluster 3**, permettendo al sistema di agire con intenzionalità e fornire giustificazioni che validino il percorso creativo condiviso.",
+            "images": [
+                "/uploads/img_1774004284889-418723376.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774004722728",
+            "title": "CreativeConnect: Supporting Reference Recombination for Graphic Design Ideation with Generative AI",
+            "author": "DaEun Choi, Sumin Hong, Jeongeon Park, John Joon Young Chung, Juho Kim",
+            "year": "11 Maggio 2024",
+            "area": "Cognitive Frameworks",
+            "url": "https://dl.acm.org/doi/10.1145/3613904.3642794",
+            "info": "> **AI Summary: Abstract**\n> Il paper introduce **CreativeConnect**, un sistema basato su IA generativa progettato per supportare l'ideazione nel graphic design tramite la ricombinazione di riferimenti. A differenza dei sistemi che puntano al fotorealismo, CreativeConnect utilizza keyword e sketch a bassa fedeltà per stimolare l'esplorazione concettuale, permettendo ai designer di espandere il proprio spazio di ricerca senza compromettere l'autonomia creativa.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**7.1 - Tipi di Supporto alla Creatività**\nCreativeConnect si focalizza sulla fase di **ispirazione** anziché su quella di implementazione. Accettando input frammentari, il sistema genera risultati inaspettati che favoriscono la serendipità e aiutano a superare il \"blocco dell'artista\". Mentre i sistemi tradizionali richiedono una visione già chiara, questo approccio supporta la scoperta di nuove direzioni semantiche.\n\n> **Applicazione del Modello Descrittivo di Cross**\n> Il sistema si allinea al modello di Nigel Cross, supportando le fasi di **problem-scoping** attraverso i processi di \"emergenza\" (scoperta di proprietà latenti) e \"mutazione\" di design esistenti. I dati confermano che CreativeConnect incoraggia il **pensiero divergente**, portando i progettisti a esplorare una varietà di keyword e concetti significativamente superiore alla norma.\n\n**7.2 - Il Ruolo degli Output a Bassa Fedeltà**\nL'uso intenzionale di sketch lineari mira a prevenire la **fissazione cognitiva**. Gli output ad alta fedeltà possono essere controproducenti, poiché presentano soluzioni che appaiono \"finite\" e limitano l'innovazione. Rimuovendo texture e colori, il sistema costringe il designer a concentrarsi sulla struttura concettuale, lasciando spazio all'immaginazione e alla reinterpretazione personale.\n\n**7.3 - Generalizzabilità in Contesti Diversi**\nL'efficacia dello strumento varia con l'esperienza: per i novizi funge da impalcatura metodologica per imparare a dissezionare i riferimenti, mentre per gli esperti agisce come un compagno di **brainstorming** per forzare l'uscita dalle proprie zone di comfort stilistiche.\n\n**9 - Conclusioni (Riferimento img12)**\nL'analisi quantitativa valida l'efficacia del sistema rispetto alla baseline:\n- **Efficienza Ideativa**: Incremento dei bozzetti prodotti (5.56 vs 5.06).\n- **Esplorazione Concettuale**: Aumento massiccio delle keyword annotate (34.69 vs 13.19).\n- **Percezione Creativa**: Miglioramento della creatività autovalutata (5.38 vs 4.19).\nIl sistema accelera l'analisi dei riferimenti e propone alternative semantiche che potenziano significativamente la produzione di idee nel medesimo intervallo di tempo.",
+            "images": [
+                "/uploads/img_1774004722741-846096296.png",
+                "/uploads/img_1774004722748-939099820.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774005022456",
+            "title": "Expandora: Broadening Design Exploration with Text-to-Image Model",
+            "author": "Daeun Choi, Kihoon Son, Hyunjoon Jung, Juho Kim",
+            "year": "25 Aprile 2025",
+            "area": "Cognitive Frameworks",
+            "url": "https://dl.acm.org/doi/pdf/10.1145/3706599.3720189",
+            "info": "> **AI Summary: Abstract**\n> Il paper presenta **Expandora**, un sistema progettato per potenziare l'esplorazione progettuale nei modelli Text-to-Image (T2I). Affrontando le difficoltà dei designer nell'articolare intenzioni aperte e nel gestire flussi non lineari, Expandora utilizza una pipeline basata su LLM per generare variazioni strutturate di prompt. Lo studio conferma che il sistema aumenta drasticamente la diversità dei risultati e la soddisfazione dell'utente, trasformando l'interazione da una sequenza cronologica a una mappa concettuale ramificata.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Limitazioni dei modelli T2I tradizionali**\nI designer riscontrano due ostacoli critici: la difficoltà nel **controllare la diversità** (cosa deve variare e cosa restare fisso) e la **linearità delle interfacce** attuali. La struttura a elenco cronologico costringe gli utenti a ricominciare da zero a ogni iterazione, impedendo la fusione di idee o il ritorno a versioni precedenti, frammentando così il processo creativo naturale.\n\n**Obiettivi di Progetto (DG)**\n* **DG1. Supporto all'intenzione esplorativa**: Consentire la specifica della direzione e dell'ampiezza della diversità, garantendo che l'IA esplori possibilità coerenti con la visione aperta del designer.\n* **DG2. Flussi di lavoro iterativi**: Facilitare la ramificazione e la rivisitazione della cronologia senza soluzione di continuità, eliminando la rigidità delle sequenze temporali.\n\n\n\n**Esplorazione efficace e soddisfazione**\nI dati quantitativi evidenziano un impatto massiccio sulle performance:\n- **Produttività**: Gli utenti di Expandora testano oltre il doppio dei prompt rispetto alla baseline ($30,88$ vs $14$).\n- **Carico Cognitivo**: Nonostante l'aumento dell'attività, lo sforzo percepito (NASA-TLX) rimane invariato, con una significativa riduzione della pressione temporale.\n- **Soddisfazione**: Il sistema agisce come un catalizzatore cognitivo; anche in assenza di idee definite, l'input strutturato fornisce stimoli immediati da testare, riducendo il rischio di **fissazione del design** e potenziando il **pensiero divergente**.",
+            "images": [
+                "/uploads/img_1774005022463-334543287.png",
+                "/uploads/img_1774005022466-794735245.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774005271065",
+            "title": "Intelligent Design 4.0: Paradigm Evolution Toward the Agentic AI Era",
+            "author": "Shuo Jiang, Min Xie, Frank Youhua Chen, Jian Ma, Jianxi Luo",
+            "year": "6 Giugno 2025",
+            "area": "Interaction Systems",
+            "url": "https://arxiv.org/html/2506.09755v1",
+            "info": "> **AI Summary: Abstract**\n> L’articolo introduce l’**Intelligent Design 4.0** (ID 4.0), un paradigma basato su sistemi IA agentici e Large Language Models. Evolvendosi dai sistemi esperti e dal machine learning specifico, l'ID 4.0 punta all'automazione end-to-end tramite la **collaborazione multi-agente**. Il framework mira a una progettazione adattiva e autonoma, capace di affrontare sfide ingegneristiche complesse allineandosi ai valori umani.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Sfide e opportunità per l'ID 4.0**\nIl passaggio cruciale è la trasformazione da processi statici a **ecosistemi dinamici** di apprendimento e coordinamento. Sebbene esistano prototipi validi, le questioni aperte riguardano la scalabilità e la capacità dei sistemi di restare ancorati alla realtà operativa (grounding) in contesti pratici.\n\n**Verso una collaborazione tra agenti efficace**\nL'ID 4.0 richiede meccanismi di coordinamento flessibili che superino i flussi di lavoro rigidamente definiti. Si interroga sulla tensione tra l'uso di **singoli \"super-agenti\"** generalisti e l'impiego di **sistemi multi-agente** specializzati. La ricerca futura dovrà bilanciare potenza e modularità per ottimizzare l'orchestrazione dei compiti e lo scambio autonomo di conoscenze.\n\n\n\n**Verso nuove forme di definizione degli obiettivi (Goal-setting)**\nTradizionalmente centrato sull'uomo, il design vede ora l'emergere di IA capaci di formulare obiettivi autonomamente.\n> In risposta a prompt vaghi, un sistema ID 4.0 può estrapolare l'**intento dell'utente** o suggerire target di livello superiore precedentemente non considerati.\n\nQuesto cambiamento mette in discussione l'idea che l'intenzione umana sia l'unica fonte di obiettivi validi. Autorizzare gli agenti a ridefinire il problema può sbloccare una **creatività di ordine superiore**, trasformando l'IA da semplice esecutore a partner strategico nell'ideazione e nella scoperta autonoma dei problemi."
+        },
+        {
+            "id": "p_custom_1774005472663",
+            "title": "AI Agents in Engineering Design: A Multi-Agent Framework for Aesthetic and Aerodynamic Car Design",
+            "author": "Mohamed Elrefaie, Janet Qian, Raina Wu, Qian Chen, Angela Dai, Faez Ahmed",
+            "year": "30 Marzo 2025",
+            "area": "Validation",
+            "url": "https://arxiv.org/abs/2503.23315",
+            "info": "> **AI Summary: Abstract**\n> Il paper introduce il concetto di **Design Agents** applicato alla progettazione automobilistica, estendibile ad altri domini ingegneristici. Il framework integra agenti IA specializzati nel workflow tradizionale per automatizzare task manuali complessi come lo sketching concettuale, la modellazione generativa 3D e le simulazioni fluidodinamiche (CFD). Sfruttando modelli VLM e LLM, il sistema riduce i tempi di iterazione da settimane a pochi minuti, permettendo un'esplorazione progettuale rapida e accurata basata su benchmark industriali e simulazioni ad alta fedeltà.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*",
+            "images": [
+                "/uploads/img_1774005472671-633232741.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774005732676",
+            "title": "An LLM-enabled Multi-Agent Autonomous Mechatronics Design Framework",
+            "author": "Yuanqi Du, Michael M. Zavlanos",
+            "year": "20 Aprile 2025",
+            "area": "Validation",
+            "url": "https://arxiv.org/html/2504.14681",
+            "info": "> **AI Summary: Abstract**\n> Lo studio propone un framework autonomo basato su sistemi multi-agente e LLM per la progettazione meccatronica complessa, superando i limiti degli attuali modelli confinati ad ambienti digitali. Il sistema integra competenze di design meccanico, elettronica e software per generare prototipi fisici funzionali con un input umano minimo. La validazione è avvenuta attraverso lo sviluppo di un vascello autonomo per il monitoraggio della qualità dell'acqua, dimostrando la capacità dell'IA di gestire vincoli reali e integrazione cross-disciplinare.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*",
+            "images": [
+                "/uploads/img_1774005732684-450764311.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774005884375",
+            "title": "iDesignGPT enhances conceptual design via large language model agentic workflows",
+            "author": "Daeun Choi, Kihoon Son, Hyunjoon Jung, Juho Kim",
+            "year": "24 Gennaio 2026",
+            "area": "Validation",
+            "url": "https://www.nature.com/articles/s41467-026-68672-1",
+            "info": "> **AI Summary: Abstract**\n> L'articolo presenta **iDesignGPT**, un framework che integra LLM e metodologie di progettazione consolidate per supportare il design concettuale. Attraverso flussi di lavoro agentici e collaborazioni multi-agente, il sistema gestisce la rifinitura dei problemi, l'esplorazione dello spazio di design e la valutazione tramite metriche quantitative (novità, diversità, modularità). Test condotti su sfide reali dimostrano che iDesignGPT supera modelli come GPT-4o e DeepSeek-R1 in originalità, riducendo il carico mentale dei progettisti novizi e rendendo il flusso creativo più fluido e strutturato.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Topologie di Flusso per la Creatività Collaborativa**\niDesignGPT organizza l'interazione tra agenti e utenti attraverso tre configurazioni strutturate, trasformando la generazione di idee in un processo ingegnerizzato:\n\n* **Star Flow (Flusso a Stella)**: Un agente host coordina esperti virtuali con competenze diverse. Questa struttura è essenziale per il brainstorming multi-prospettico, contrastando attivamente la **fissazione creativa** attraverso la sintesi collettiva di contributi eterogenei.\n* **Loop Flow (Flusso a Ciclo)**: Un processo iterativo tra un \"generatore\" e un \"checker\". Il controllore valida l'output rispetto a criteri tecnici rigorosi, riducendo le allucinazioni e garantendo la coerenza logica della scomposizione funzionale.\n* **Sequential Flow (Flusso Sequenziale)**: Guida l'utente passo-passo attraverso fasi logiche prestabilite, utilizzando database di principi creativi per risolvere conflitti specifici di progettazione.\n\n\n\nL'efficacia di queste topologie è confermata dalla capacità del sistema di mantenere un'alta **modularità** e originalità, fornendo ai designer un'impalcatura metodologica che bilancia l'automazione intelligente con il controllo umano."
+        },
+        {
+            "id": "p_custom_1774006021193",
+            "title": "Large Language Models for Predicting Empathic Accuracy Between a Designer and a User ",
+            "author": "Oluwatoba Fabunmi, Saman Halgamuge, Daniel Beck, Katja Holtta-Otto",
+            "year": "10 Dicembre 2024",
+            "area": "Interaction Systems",
+            "url": "https://asmedigitalcollection.asme.org/mechanicaldesign/article/147/4/041401/1209806/Large-Language-Models-for-Predicting-Empathic?guestAccessKey=",
+            "info": "> **AI Summary: Abstract**\n> La ricerca esplora l'uso degli LLM per automatizzare la misurazione della **Empathic Accuracy** (EA) nel design, ovvero la capacità del progettista di identificare correttamente pensieri e sentimenti dell'utente. Tradizionalmente dipendente da lenti e costosi giudizi umani, questa valutazione viene qui testata su un dataset di oltre 400 interazioni reali. Lo studio dimostra che, sebbene i modelli standard presentino limiti di accuratezza, il fine-tuning e l'uso di prompt strutturati permettono agli LLM di allinearsi ai giudici umani, offrendo una soluzione scalabile per monitorare le soft skills nel processo progettuale.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**1. Il problema: Il collo di bottiglia della valutazione**\nMisurare l'empatia nel design human-centered richiede esperti che analizzino ore di registrazioni, creando un limite invalicabile per la scalabilità in contesti professionali o didattici. L'obiettivo è trasformare l'LLM in un **valutatore automatico** della performance empatica.\n\n**2. Il concetto di Empathic Accuracy (EA)**\nL'empatia viene operazionalizzata come la **distanza semantica** tra il pensiero reale dell'utente (*ground truth*) e l'ipotesi formulata dal designer (*designer's guess*). L'EA misura quanto precisamente queste due dimensioni coincidano in momenti specifici dell'interazione.\n\n\n\n**3. Metodologia: L'LLM come \"Giudice\"**\nIl setup sperimentale ha previsto l'alimentazione degli LLM con il contesto della conversazione e le coppie di pensieri/ipotesi. Al modello è stato chiesto di assegnare un punteggio di accuratezza, poi confrontato con un benchmark di voti assegnati da raters umani esperti per verificarne l'affidabilità.\n\n**4. Risultati chiave**\n* **Necessità di contestualizzazione**: I modelli \"off-the-shelf\" faticano a replicare il giudizio umano senza una guida specifica; l'empatia richiede sensibilità al contesto non presente nei prompt generici.\n* **Prestazioni Guidate**: Attraverso il fine-tuning e prompt strutturati, gli LLM raggiungono una correlazione significativa con i giudici umani.\n* **Fattibilità**: Automatizzare la valutazione delle soft skills è tecnicamente possibile, aprendo la strada a strumenti di monitoraggio in tempo reale a basso costo per i team di design."
+        },
+        {
+            "id": "p_custom_1774006136406",
+            "title": "Reading Users' Minds With Large Language Models: Mental Inference for Artificial Empathy in Design ",
+            "author": "Qihao Zhu, Leah Chong, Maria Yang, Jianxi Luo",
+            "year": "15 Gennaio 2025",
+            "area": "Interaction Systems",
+            "url": "https://asmedigitalcollection.asme.org/mechanicaldesign/article/147/6/061401/1211026/Reading-Users-Minds-With-Large-Language-Models?guestAccessKey=",
+            "info": "> **AI Summary: Abstract**\n> La ricerca indaga l'uso degli LLM per eseguire compiti di **inferenza mentale**, superando il compromesso tra profondità e scala nella ricerca centrata sull'uomo. Il sistema punta a dedurre gli obiettivi latenti e i bisogni psicologici fondamentali (FPN) degli utenti. Attraverso il confronto con benchmark umani, lo studio dimostra che gli LLM, utilizzando tecniche di prompt engineering zero-shot, raggiungono un'accuratezza empatica paragonabile a quella dei designer professionisti, offrendo nuove possibilità per scalare la progettazione empatica su grandi popolazioni.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**2. Il concetto di \"Mental Inference\" e \"Artificial Empathy\"**\nL'empatia artificiale viene definita come la capacità dell'algoritmo di trascendere la dichiarazione superficiale dell'utente per identificare:\n* **Underlying Goals**: Gli scopi reali oltre l'azione pratica.\n* **Fundamental Psychological Needs (FPNs)**: Le spinte basilari (autonomia, competenza, relazionalità) che guidano il comportamento, basate sulla *Self-Determination Theory*.\n\n\n\n**3. Metodologia: Misurare l'empatia dell'LLM**\nIl setup ha utilizzato un dataset dove le dichiarazioni degli utenti erano accoppiate alla loro \"ground truth\" (auto-dichiarazione dei bisogni reali). L'**Empathic Accuracy** è stata misurata calcolando la somiglianza tra l'inferenza dell'osservatore (umano o IA) e la realtà riportata dall'utente, testando i modelli in modalità zero-shot.\n\n**4. Risultati chiave**\n* **Prestazioni comparabili**: Gli LLM riescono a mappare la semantica dell'utente sui costrutti psicologici con un'efficacia pari o superiore ai designer umani.\n* **Assenza di Bias**: A differenza dei progettisti junior, l'LLM non proietta i propri desideri personali ma utilizza la vasta letteratura psicologica interiorizzata durante il pre-training per oggettivare l'analisi.\n* **Scalabilità**: Il lavoro dimostra che è possibile ottenere una comprensione profonda degli utenti anche su larga scala, trasformando l'IA in uno strumento che potenzia radicalmente il toolkit del design human-centered."
+        },
+        {
+            "id": "p_custom_1774006341205",
+            "title": "Computational Empathy Counteracts the Negative Effects of Anger on Creative Problem Solving",
+            "author": "Matthew Groh, Craig Ferguson, Robert Lewis, Rosalind W. Picard",
+            "year": "15 Agosto 2022",
+            "area": "Interaction Systems",
+            "url": "https://arxiv.org/pdf/2208.07178",
+            "info": "> **AI Summary: Abstract**\n> Lo studio indaga l'influenza dell'empatia computazionale sulla risoluzione creativa di problemi attraverso un esperimento con 1.006 partecipanti. Utilizzando un agente virtuale capace di mimesi affettiva e perspective-taking, la ricerca dimostra che l'empatia può neutralizzare gli effetti deleteri della rabbia sulle performance cognitive. **I risultati indicano che i partecipanti assegnati alla condizione di sollecitazione della rabbia ottengono prestazioni significativamente peggiori su molteplici metriche rispetto ai partecipanti nella condizione di controllo.** Tuttavia, i soggetti assegnati contemporaneamente **all’agente empatico che alla rabbia non hanno mostrato differenze rispetto al gruppo di controllo, ottenendo risultati significativamente migliori rispetto a chi era assegnato all’agente di controllo in stato di rabbia.**\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Meccanismi di Intervento**\nIl framework si basa su un agente virtuale che agisce tramite:\n* **Mimesi Affettiva**: Rispecchiamento dello stato emotivo specifico del contesto.\n* **Perspective Taking**: Capacità dell'agente di adottare il punto di vista dell'utente.\n\n\n\n**Risultati Sperimentali**\nL'esperimento, condotto tramite un word game (basato su Wordle), evidenzia che l'empatia non agisce come un potenziatore universale (non migliora le prestazioni in assenza di stress), ma come un **regolatore emotivo**. La sua funzione primaria è quella di \"tamponare\" il calo di performance indotto da stati emotivi negativi, ristabilendo la capacità di *creative problem solving* compromessa dalla rabbia.\n\n**Implicazioni per il Design**\nQuesta evidenza empirica suggerisce che l'integrazione di agenti empatici nei sistemi co-creativi è fondamentale non solo per l'ispirazione, ma per la **resilienza cognitiva** dell'utente, garantendo la continuità del flusso creativo anche in situazioni di frustrazione o pressione."
+        },
+        {
+            "id": "p_custom_1774006503017",
+            "title": "Empathetic Conversational Agents: Utilizing Neural and Physiological Signals for Enhanced Empathetic Interactions",
+            "author": "Nastaran Saffaryazdi, Tamil Selvan Gunasekaran, Kate Loveys, Elizabeth Broadbent, Mark Billinghurst",
+            "year": "24 Dicembre 2024",
+            "area": "Validation",
+            "url": "https://arxiv.org/html/2501.08393v1",
+            "info": "> **AI Summary: Abstract**\n> L’articolo indaga l'integrazione di **segnali neurali e fisiologici** nei moduli di percezione degli agenti conversazionali per creare \"Umani Digitali\" (DH) empatici. Attraverso il rilevamento delle emozioni in tempo reale, il sistema è in grado di generare risposte ed espressioni mimetiche. I test dimostrano che l'uso di questi segnali biometrici intensifica il coinvolgimento e l'emotività dell'utente, sebbene permangano sfide tecniche legate all'accuratezza del riconoscimento e alla naturalezza della modulazione vocale.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Sviluppo Tecnico e Sperimentazione**\nLa ricerca sposta il confine della *Computational Empathy* dal piano puramente testuale a quello **multimodale**:\n* **Modulo di Percezione**: Sfrutta EEG e sensori fisiologici per superare i limiti dei chatbot tradizionali.\n* **Rispecchiamento in tempo reale**: Il DH adatta espressioni facciali e contenuti verbali sincronizzandosi con lo stato biologico dell'utente.\n\n\n\n**Risultati e Criticità**\nMentre l'efficacia nel promuovere connessioni significative è confermata, lo studio identifica quattro aree di miglioramento essenziali per la *Design Intelligence*:\n1.  **Velocità di transizione**: L'IA deve cambiare emozione con una fluidità coerente con i ritmi umani.\n2.  **Effetti della personalità**: La risposta empatica deve essere calibrata sul profilo individuale dell'utente.\n3.  **Accuratezza del riconoscimento**: Riduzione del rumore nei segnali biometrici.\n4.  **Modulazione vocale**: Superamento della roboticità del tono per riflettere l'empatia visiva anche a livello uditivo."
+        },
+        {
+            "id": "p_custom_1774006829088",
+            "title": "Orchid: Orchestrating Context Across Creative Workflows with Generative AI",
+            "author": "Srishti Palani, Gonzalo Ramos",
+            "year": "27 Agosto 2025",
+            "area": "Interaction Systems",
+            "url": "https://arxiv.org/abs/2508.19517",
+            "info": "> **AI Summary: Abstract**\n> L'articolo presenta **Orchid**, un sistema progettato per gestire l'orchestrazione del contesto nei flussi di lavoro creativi complessi. Orchid permette di specificare e monitorare il contesto relativo al progetto, all'utente e agli stili attraverso menzioni esplicite (\"@\") e grounding implicito. Lo studio dimostra che l'uso di Orchid produce risultati più innovativi e un maggiore allineamento tra l'intento umano e la risposta dell'IA, aumentando la trasparenza e il controllo percepito durante i processi iterativi.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**6.1 Orchestrazione del contesto e flussi di lavoro**\nOrchid risolve la difficoltà dei modelli GenAI nel mantenere un filo conduttore tra più sessioni. Grazie alla funzione **Transparency Lens**, gli utenti possono visualizzare su quali informazioni si basa ogni azione dell'IA, riducendo l'opacità dei processi probabilistici.\n\n> Ogni volta che la GenAI generava contenuti, abbiamo osservato che i partecipanti trascorrevano del tempo a \"controllare i compiti dell'IA\". Questo tipo di attività di valutazione può essere presente nei flussi di lavoro creativi tradizionali ma in dosi molto minori: ci si fida di se stessi perché si segue il processo, o ci si fida di un collega grazie a una relazione o reputazione.\n\n\n\n**6.2 Interazioni empatiche e sociali**\nIl sistema esplora una dimensione sociale della collaborazione uomo-IA:\n* <u>**I partecipanti hanno riferito di aver trovato utile specificare il proprio stato emotivo e le preferenze di design nella pagina \"me\" di Orchid.**</u>\n* <u>**Orchid ha offerto ai partecipanti l'opportunità di considerare un sistema consapevole e attento al loro stato emotivo interno, al contesto mentale e allo stile di lavoro.**</u>\n* <u>**I partecipanti hanno gradito l'interazione con persona simulate, sentendo che ciò rendeva il processo più collaborativo.**</u>\n\nL'uso di **persona simulate** funge da \"lente\" attraverso cui modulare le informazioni, rendendo il prompting un esercizio di riflessione critica. Il sistema non supporta solo l'output creativo, ma mira a un ambiente di lavoro che rispetti il benessere e il contesto psicologico del creativo.",
+            "images": [
+                "/uploads/img_1774006829097-255266853.png",
+                "/uploads/img_1774006829099-170900834.png",
+                "/uploads/img_1774006829102-543387756.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774007022441",
+            "title": "The Effects of Generative AI on Design Fixation and Divergent Thinking",
+            "author": "Samangi Wadinambiarachchi, Ryan M. Kelly, Saumya Pareek, Qiushi Zhou, Eduardo Velloso",
+            "year": "17 Marzo 2024",
+            "area": "Cognitive Frameworks",
+            "url": "https://arxiv.org/abs/2403.11164",
+            "info": "> **AI Summary: Abstract**\n> L’articolo esplora empiricamente gli effetti dell’IA generativa sulla creatività umana, rivelando risultati controintuitivi: l’uso di generatori di immagini durante l’ideazione può aumentare la **fissazione del design**. Lo studio (N=60) mostra che i partecipanti supportati dall'IA hanno prodotto meno idee, con minore varietà e originalità rispetto alla baseline. La ricerca sottolinea che l'efficacia della co-ideazione dipende dalle strategie di prompting e dalla capacità dell'utente di reagire ai suggerimenti della macchina senza farsi \"ancorare\" dai primi risultati visivi.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**La Design Fixation nel processo creativo**\nLa letteratura definisce la fissazione come l'adesione cieca a un insieme di concetti che limita l'esplorazione dello spazio progettuale. Questo fenomeno agisce come un'ancora psicologica: l'esposizione a un'idea iniziale condiziona inconsciamente tutte le iterazioni successive, indipendentemente dall'esperienza del designer.\n\n\n\n> **Strategie di Mitigazione**\n> Per contrastare la fissazione radicata nel prompting, lo studio propone tre soluzioni:\n> * **Avvisi Tempestivi**: Sistemi che non si limitano a eseguire, ma guidano l'utente verso direzioni alternative o mescolanze arbitrarie di idee.\n> * <u>**Bassa Fedeltà (Low-Fidelity): L'uso di output astratti o parziali. La perfezione visiva dei modelli attuali è un \"blocco\"; l'astrazione, al contrario, riattiva il pensiero divergente.**</u>\n> * **Template Predefiniti**: Strutture di prompt che forzano l'incompletezza del risultato per lasciare spazio all'immaginazione umana.\n\n**Nota chiave dello studio**\nLa fissazione non è solo un prodotto dell'output visivo dell'IA, ma inizia nel momento della scrittura del prompt. Se l'utente segue pedissequamente il brief nel testo, l'IA non farà altro che amplificare e sigillare quel bias iniziale, rendendo il processo circolare anziché espansivo."
+        },
+        {
+            "id": "p_custom_1774007419196",
+            "title": "Beyond Automation: How UI/UX Designers Perceive AI as a Creative Partner in the Divergent Thinking Stages",
+            "author": "Abidullah Khan, Atefeh Shokrizadeh, Jinghui Cheng",
+            "year": "30 Gennaio 2025",
+            "area": "Interaction Systems",
+            "url": "https://arxiv.org/abs/2501.18778",
+            "info": "> **AI Summary: Abstract**\n> Lo studio analizza come 19 designer UI/UX professionisti percepiscono l'IA come partner creativo nelle fasi di **pensiero divergente**. La ricerca identifica quattro ruoli cruciali: assistenza nella ricerca, superamento del blocco creativo (*kick-starting*), generazione di alternative di design e navigazione tra diversi livelli di fedeltà dei prototipi. I risultati evidenziano che i designer non cercano l'automazione totale, ma strumenti che offrano controllo, riflettano le loro abitudini visive e liberino tempo per l'innovazione pura.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Uso dell'IA nel Pensiero Divergente (Sintesi)**\nL'integrazione dell'IA nel workflow si manifesta in cinque aree operative:\n1. **Pre-Design**: Velocizzazione di analisi competitor, sintesi dati utente e creazione di Personas.\n2. **Ideazione**: Strumento anti-blocco per generare bozze iniziali e organizzare concept.\n3. **Design Specifico**: Esplorazione di layout, palette colori e stili visivi (es. Midjourney).\n4. **Prototipazione**: Generazione di interfacce cliccabili da testo e variazioni rapide di componenti.\n5. **Contenuti**: Sostituzione del *Lorem Ipsum* con copy realistico e immagini su misura.\n\n> **Focus: Barriere all'adozione (Perché il 42% non la usa)**\n> Nonostante le potenzialità, molti designer resistono all'IA per:\n> * **Qualità generica**: Risultati spesso troppo \"vagi\" per standard aziendali elevati.\n> * **Privacy**: Restrizioni legali sui dati sensibili del progetto.\n> * **Costi**: Barriere economiche per l'accesso a modelli avanzati.\n\n\n\n**Valori e Desideri per il Futuro (Sintesi)**\nI designer aspirano a un'IA che agisca come **memoria storica** del team, integrandosi nei database aziendali e nei design system esistenti (es. Figma) per gestire versioni e ricerche pregresse in modo analitico e non solo generativo.\n\n> **Focus: Efficienza e Liberazione Creativa**\n> L'obiettivo primario è delegare i \"task noiosi\" (rinominare livelli, adattare formati, correggere sviste) per spostare il focus dal *fare* al *pensare*. Si desidera un ponte fluido tra schizzi fisici e interfacce digitali che seguano automaticamente le linee guida del brand.\n\n> **Focus: Oltre l'interfaccia Chat**\n> L'attuale interazione basata su testo è percepita come un limite per i profili visivi:\n> * **Visualizzazione**: Preferenza per dati organizzati graficamente rispetto ai muri di testo.\n> * <u>**Difficoltà con i prompt: Scrivere il \"comando perfetto\" è faticoso e richiede tempo. I designer desiderano suggerimenti automatici, esempi o un'IA proattiva che faccia domande.**</u>\n> * **Curva di apprendimento**: Necessità di interazioni più naturali per ridurre la frustrazione dei tentativi a vuoto.",
+            "images": [
+                "/uploads/img_1774007419204-43916663.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774007806484",
+            "title": "Divergent Creativity in Humans and Large Language Models",
+            "author": "Antoine Bellemare-Pepin, François Lespinasse, Philipp Thölke, Yann Harel, Kory Mathewson, Jay A. Olson, Yoshua Bengio, Karim Jerbi",
+            "year": "1 Luglio 2025",
+            "area": "Cognitive Frameworks",
+            "url": "https://arxiv.org/abs/2405.13012",
+            "info": "> **AI Summary: Abstract**\n> Lo studio effettua una valutazione sistematica della diversità semantica degli LLM confrontandola con il pensiero divergente umano su un dataset di 100.000 individui. Utilizzando il **Divergent Association Task** (DAT), i ricercatori hanno scoperto che, sebbene gli LLM superino la media della popolazione umana e si avvicinino alle capacità di scrittura creativa standard, non riescono ancora a eguagliare le prestazioni degli individui altamente creativi. Il framework proposto affronta il dibattito sulla sostituzione del lavoro creativo, evidenziando l'esistenza di un \"soffitto\" che l'IA attuale non è ancora in grado di abbattere.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Sintesi: Gli LLM superano la media, ma non l'eccellenza umana**\nUn risultato chiave è che modelli come GPT-4 superano il punteggio DAT medio di un campione di 100.000 persone. Tuttavia, anche i modelli migliori non superano la media del 50% superiore delle risposte umane. Il divario diventa netto quando il confronto si sposta verso i decili umani più alti.\n\nÈ plausibile che la coda superiore della distribuzione umana includa professionisti di ambiti ricchi di linguaggio (scrittori, poeti, studiosi), i quali definiscono uno standard di **diversità semantica** ancora irraggiungibile per le macchine.\n\n\n\n**(fig. 1)** Punteggi medi di creatività per una vasta gamma di modelli linguistici di grandi dimensioni (LLM) e campioni umani nel Divergent Association Task (DAT). I modelli sono ordinati dal punteggio medio più basso a quello più alto, con barre di errore che indicano gli intervalli di confidenza al 95%. Per gli esseri umani, ogni barra rappresenta la media di un sottocampione casuale di 500 risposte ($n=500$), estratto dalla distribuzione completa ($N=100.000$) o limitato al top 50% ($N=50.000$), 25% ($N=25.000$) o 10% ($N=10.000$) delle risposte. Per gli LLM, ogni barra rappresenta la media di 500 risposte generate dal modello.\n\n**Implicazioni per il lavoro creativo**\nNonostante i timori di una imminente sostituzione dei professionisti della creatività, i risultati suggeriscono che tali preoccupazioni siano premature. Il divario persistente tra i \"top performer\" umani e gli LLM indica che i ruoli creativi più esigenti e originali difficilmente saranno soppiantati dai sistemi attuali, che mancano ancora di quella spinta divergente estrema tipica dell'inventiva umana superiore.",
+            "images": [
+                "/uploads/img_1774007806490-104619575.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774008067759",
+            "title": "A large-scale comparison of divergent creativity in humans and large language models",
+            "author": "Dawei Wang, Difang Huang, Haipeng Shen, Brian Uzzi",
+            "year": "23 Dicembre 2025",
+            "area": "Cognitive Frameworks",
+            "url": "https://www.nature.com/articles/s41562-025-02331-1?fromPaywallRec=false",
+            "info": "> **AI Summary: Abstract**\n> Lo studio confronta su vasta scala la capacità di generare idee innovative tra esseri umani ($N=9.198$) e LLM ($N=215.542$ osservazioni). I risultati indicano che la creatività umana media è leggermente superiore a quella delle macchine, ma il divario diventa drastico agli estremi della distribuzione: gli umani mostrano una variabilità molto più alta e picchi di eccellenza nella \"coda destra\" (il top performer) che l'IA non riesce a replicare. Strategie come l'uso di \"persona\" geniali migliorano le prestazioni dell'IA solo fino a una certa soglia, oltre la quale l'output diventa artificiale o incoerente.\n> \n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Sintesi: Il ruolo complementare dell'IA**\nI risultati presentano una prospettiva sfumata: sebbene gli LLM possano eguagliare la prestazione creativa media, evidenziando il loro potenziale nel migliorare l'efficienza operativa, essi non replicano le abilità eccezionali degli esseri umani ad alte prestazioni. \n\n> <u>**Questi risultati suggeriscono che, piuttosto che sostituire gli esseri umani, gli LLM possano essere posizionati al meglio come strumenti per potenziare i processi creativi umani, supportando in particolare i compiti creativi di routine e lasciando la creatività di livello esperto agli specialisti umani.**</u>\n\n> **“...necessità di una progettazione ponderata nell'implementare la collaborazione uomo-macchina, garantendo che i punti di forza complementari siano sfruttati efficacemente riducendo al minimo le potenziali inefficienze o le perdite di processo.”**\n\n\n\n**Riferimento Fig. 1 - Metodologia: Il Divergent Association Task (DAT)**\nA differenza di studi soggettivi, questo ha utilizzato il **DAT**: ai partecipanti viene chiesto di fornire 10 parole il più possibile semanticamente distanti. La distanza viene calcolata oggettivamente da un algoritmo.\n\n**Risultati: Media vs. Eccellenza**\n* **La \"Media\" è simile**: Gli LLM raggiungono punteggi medi vicini a quelli umani, confermando la loro utilità per compiti creativi di routine.\n* **Il primato dell'eccellenza umana**: Gli esseri umani mostrano una **varianza** molto più alta. L'IA è \"costantemente buona\", ma gli umani producono picchi di genialità estrema (top 1%) che l'IA non raggiunge.\n* **Omogeneità dell'IA**: Gli output degli LLM tendono a sovrapporsi, mentre gli umani attingono a un vocabolario e a un'esperienza vissuta molto più vasti e variegati.",
+            "images": [
+                "/uploads/img_1774008067782-567474544.png"
+            ]
+        },
+        {
+            "id": "p_custom_1774093573451",
+            "title": "\"Design fixation\" & \"Cognition in design: Viewing the hidden side of the design process\"",
+            "author": "Jansson & Smith (1991), Jansson, Condoor & Brock (1993)",
+            "year": "1991",
+            "area": "Cognitive Frameworks",
+            "url": "https://cecas.clemson.edu/cedar/wp-content/uploads/2016/07/9-JanssonAndSmith1991.pdf",
+            "info": "> **Jansson & Smith (1991) — \"Design fixation\"**\n> *Design Studies*, 12(1), pp. 3–11\n>\n> Il paper introduce e documenta per la prima volta il fenomeno della design fixation, definita come la cieca aderenza a un insieme limitato di idee che vincola il risultato della progettazione concettuale. Gli autori conducono esperimenti con ingegneri esperti e studenti su due task (un dispositivo per non vedenti e un portabici): al gruppo sperimentale viene mostrato un esempio di soluzione — volutamente difettoso — mentre al gruppo di controllo no. I risultati mostrano che chi ha visto l'esempio tende a replicarne le caratteristiche anche quando sono inadeguate, e anche dopo espliciti avvertimenti. La fixation colpisce esperti e novizi in modo analogo.\n\n---\n\n> **Jansson, Condoor & Brock (1993) — \"Cognition in design: Viewing the hidden side of the design process\"**\n> *Environment and Planning B*, 20(3), pp. 257–271\n>\n> Questo paper costruisce il framework teorico che spiega il perché della fixation. Gli autori propongono che il processo di design si articoli in due spazi distinti — lo spazio concettuale (idee, principi, astrazioni) e lo spazio di configurazione (soluzioni fisicamente realizzabili) — tra i quali il designer dovrebbe muoversi continuamente. La fixation è descritta come il fallimento di questo movimento: il designer rimane ancorato allo spazio di configurazione, modificando dettagli superficiali senza mai risalire a una vera riformulazione concettuale del problema. Il paper offre così la base cognitiva al fenomeno empirico osservato nel 1991.",
+            "images": [
+                "/uploads/img_1774093573486-367237870.svg"
+            ]
+        }
+    ],
+    "caseStudies": [
+        {
+            "id": "c_custom_1774103673383",
+            "title": "77 Design Heuristics",
+            "author": "Shanna Dym, Kristen Linsey",
+            "year": "2012",
+            "area": "Cognitive Frameworks",
+            "url": "https://www.designheuristics.com",
+            "info": "Set di 77 carte euristiche derivate dall'analisi di oltre 400 prodotti di consumo premiati per l'innovazione. Ogni carta presenta un principio di trasformazione progettuale, una descrizione testuale e due esempi visivi di prodotti reali che applicano quell'euristica.\n\nIl metodo è stato sviluppato empiricamente — non per intuizione teorica — estraendo pattern ricorrenti da prodotti innovativi esistenti. Le euristiche coprono strategie come: segmentare funzioni, imitare meccanismi naturali, sfruttare superfici opposte, convertire un oggetto per una seconda funzione, sintetizzare più funzioni in un componente singolo.\n\n**Evidenza empirica:**\nStudi mostrano che i concetti generati con le Design Heuristics risultano meno simili agli esempi iniziali rispetto al brainstorming, con valutazioni medie di creatività, quantità e diversità attorno a 3.9/5.0. L'80% degli studenti ha trovato il metodo più facile da usare rispetto al brainstorming libero.\n\n**Limiti:**\nValidato principalmente nel contesto del design industriale e di prodotto. Non esistono versioni validate empiricamente per il design della comunicazione visiva, il service design o altri domini.\n\n**Riferimento bibliografico:**\nDym, C.L., Linsey, J.S. et al. (2012). *Design Heuristics*. designheuristics.com"
+        },
+        {
+            "id": "c_custom_1774115554787",
+            "title": "TRIZ — Theory of Inventive Problem Solving",
+            "author": "Genrich Altshuller",
+            "year": "1956",
+            "area": "Cognitive Frameworks",
+            "url": "https://autotriz.ai",
+            "info": "TRIZ è un sistema metodologico per la risoluzione inventiva dei problemi, sviluppato da Altshuller a partire dall'analisi di oltre tre milioni di brevetti. Il sistema si articola in tre componenti principali.\n\n### 1. La matrice delle contraddizioni (39×39)\n\nUna tabella in cui i 39 parametri tecnici compaiono sia sulle righe (parametro da migliorare) che sulle colonne (parametro che peggiora di conseguenza). Ogni cella contiene fino a 4 principi inventivi consigliati per risolvere quella specifica coppia di parametri in conflitto.\n\n> 📎 *[immagine 1 — matrice 39×39 con parametri sugli assi]*\n\nIl principio fondamentale: formulare il problema come contraddizione tra due parametri permette di cercare soluzioni che eliminano il conflitto invece di ottimizzarlo.\n\n### 2. I 40 principi inventivi\n\nStrategie universali e astratte derivate dai pattern ricorrenti nell'innovazione storica. Sono indipendenti dal dominio di applicazione — lo stesso principio (es. *Inversione*, *Segmentazione*, *Feedback*) può essere applicato in ingegneria meccanica, software, service design.\n\n> 📎 *[immagine 2 — lista completa dei 40 principi con numerazione]*\n\nI principi più trasponibili al communication design appartengono al gruppo 1–27. I principi dal 28 in poi (es. Ossidanti forti, Atmosfera inerte) hanno natura strettamente fisico-chimica.\n\n### 3. Il Risultato Finale Ideale (IFR)\n\nIl concetto di IFR orienta il processo verso la soluzione ottimale: quella in cui il problema si risolve da solo, senza costi aggiuntivi né effetti negativi. È uno strumento di direzione, non di metodo — serve a evitare soluzioni di compromesso.\n\n---\n\n### Relazione con la design fixation\n\nNel contesto della design fixation, TRIZ agisce nella **fase di concept** forzando il designer a riformulare il problema come contraddizione tra due parametri. Questo meccanismo sgancia cognitivamente dalla soluzione di partenza e spinge verso lo spazio concettuale — l'opposto del blocco configurazionale descritto da Jansson & Smith (1991).\n\n> 📎 *[immagine 3 — schema dei due spazi (Jansson, Condoor & Brock, 1993) con indicazione del punto di intervento TRIZ]*\n\nStudi empirici hanno mostrato che TRIZ migliora significativamente **novità** e **varietà** dei concetti generati rispetto al brainstorming, senza ridurre la quantità di output.\n\n---\n\n### Implementazione AI: AutoTRIZ\n\nIl limite principale di TRIZ è l'alta curva di apprendimento. AutoTRIZ (Jiang & Luo, 2024) risolve parzialmente questo problema automatizzando l'intero flusso TRIZ tramite LLM (GPT-4): dall'identificazione della contraddizione alla selezione dei principi, fino alla generazione di soluzioni concrete.\n\n---\n\n### Riferimenti\n\n- Altshuller, G. (1956). Prima pubblicazione sistematica del metodo TRIZ.  \n- Altshuller, G. (1979). *Creativity as an Exact Science*. Gordon and Breach.  \n- Mann, D. (2003). *Matrix 2003: Updating the TRIZ Contradiction Matrix*. CREAX Press.  \n- Jiang, S. & Luo, J. (2024). AutoTRIZ: Automating Engineering Innovation with TRIZ and Large Language Models. *Advanced Engineering Informatics*. DOI: 10.1016/j.aei.2025.103258",
+            "images": [
+                "/uploads/img_1774115554818-175179217.png",
+                "/uploads/img_1774115554825-917627854.png",
+                "/uploads/img_1774115554832-40591573.png",
+                "/uploads/img_1774115554836-137484880.png",
+                "/uploads/img_1774115619418-103245759.png",
+                "/uploads/img_1774115619419-695915049.png",
+                "/uploads/img_1774115619631-568802384.png",
+                "/uploads/img_1774115619634-757253156.png"
+            ]
+        }
+    ],
+    "links": [
+        {
+            "paper": "p_custom_1774003622977",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774004181747",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774004722728",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774004722728",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "paper": "p_custom_1774004722728",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774005022456",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774005022456",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "paper": "p_custom_1774005022456",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774005271065",
+            "keyword": "k_custom_1774002814998"
+        },
+        {
+            "paper": "p_custom_1774005472663",
+            "keyword": "k_custom_1774002921969"
+        },
+        {
+            "paper": "p_custom_1774005732676",
+            "keyword": "k_custom_1774002921969"
+        },
+        {
+            "paper": "p_custom_1774005884375",
+            "keyword": "k_custom_1774002921969"
+        },
+        {
+            "paper": "p_custom_1774006021193",
+            "keyword": "k_custom_1774002834421"
+        },
+        {
+            "paper": "p_custom_1774006136406",
+            "keyword": "k_custom_1774002834421"
+        },
+        {
+            "paper": "p_custom_1774006341205",
+            "keyword": "k_custom_1774002834421"
+        },
+        {
+            "paper": "p_custom_1774006503017",
+            "keyword": "k_custom_1774002834421"
+        },
+        {
+            "paper": "p_custom_1774006829088",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774006829088",
+            "keyword": "k_custom_1774002834421"
+        },
+        {
+            "paper": "p_custom_1774006829088",
+            "keyword": "k_custom_1774002921969"
+        },
+        {
+            "paper": "p_custom_1774007022441",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774007022441",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "paper": "p_custom_1774007419196",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774007419196",
+            "keyword": "k_custom_1774002792402"
+        },
+        {
+            "paper": "p_custom_1774007806484",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774008067759",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "paper": "p_custom_1774093573451",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "caseStudy": "c_custom_1774103673383",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "caseStudy": "c_custom_1774103673383",
+            "keyword": "k_custom_1774002921969"
+        },
+        {
+            "caseStudy": "c_custom_1774115554787",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "caseStudy": "c_custom_1774115554787",
+            "keyword": "k_custom_1774002921969"
+        }
+    ]
 }
