@@ -2556,14 +2556,15 @@ body.static-mode #empty-page-placeholder {
    ========================================== */
 #last-update-overlay {
     position: fixed;
-    bottom: 15px;
-    right: 20px;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 9999;
-    font-size: 0.75rem;
-    color: #333;
-    opacity: 0.6;
-    pointer-events: none; /* Non intralcia la mappa sottostante */
+    font-size: 0.65rem;
+    color: #000;
+    opacity: 0.4;
+    pointer-events: none;
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
 }

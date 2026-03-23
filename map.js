@@ -2427,11 +2427,16 @@ async function fetchLastUpdate() {
         const res = await fetch('./last_update.txt');
         if (!res.ok) return;
         const text = await res.text();
-        if (!text.trim()) return;
+        const rawText = text.trim();
+        // Gestione formattazione: togliamo secondi e millisecondi (es. 10:45:30.20 -> 10:45)
+        // Prendiamo la data e i primi 5 caratteri del tempo
+        const parts = rawText.split(/\s+/).filter(p => p.length > 0);
+        const datePart = parts[0] || "";
+        const timePart = parts[1] ? parts[1].substring(0, 5) : "";
         
         const div = document.createElement('div');
         div.id = 'last-update-overlay';
-        div.textContent = `Ultimo aggiornamento: ${text.trim()}`;
+        div.textContent = `Last update: ${datePart} ${timePart}`;
         document.body.appendChild(div);
     } catch (e) {
         console.error("Errore recupero data ultimo aggiornamento", e);
