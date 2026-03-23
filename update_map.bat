@@ -4,6 +4,7 @@ echo   AGGIORNAMENTO MAPPA SU GITHUB PAGES
 echo ==========================================
 echo.
 
+echo %date% %time% > last_update.txt
 git add .
 set /p msg="Descrivi brevemente la modifica (es. Aggiunti nuovi paper): "
 if "%msg%"=="" set msg="Aggiornamento dati mappa"

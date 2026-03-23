@@ -126,6 +126,11 @@ async function initMap() {
 
         inizializzaFiltri(); // Inizializza l'UI adesso che data.areas esiste
         drawMap();
+        
+        // Se siamo in modalità statica (online), mostra l'etichetta di ultimo aggiornamento
+        if (isStatic) {
+            fetchLastUpdate();
+        }
     } catch (e) {
         console.error("Errore di caricamento dati dal workspace", e);
     }
@@ -2065,6 +2070,7 @@ entityForm.addEventListener('submit', async (e) => {
                 submitBtn.textContent = originalBtnText;
                 submitBtn.style.background = "";
                 submitBtn.style.color = "";
+                entityForm.reset();
                 refreshPage();
             }, 800);
         } else {
@@ -2298,6 +2304,9 @@ function openEditModal(entity, entityType) {
     document.getElementById("new-day").value = "";
     document.getElementById("new-month").value = "";
     document.getElementById("new-year").value = "";
+    
+    // Clear file input to prevent accidental re-uploads (which causes duplicate attachments and duplicated files in uploads folder)
+    document.getElementById("new-images").value = "";
 
     // Reverse Engineering della Data Formattata (es: "15 Gennaio 2024" o "2024")
     if (entity.year) {
@@ -2411,6 +2420,23 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// Funzione per recuperare ed iniettare l'etichetta della data di aggiornamento
+async function fetchLastUpdate() {
+    try {
+        const res = await fetch('./last_update.txt');
+        if (!res.ok) return;
+        const text = await res.text();
+        if (!text.trim()) return;
+        
+        const div = document.createElement('div');
+        div.id = 'last-update-overlay';
+        div.textContent = `Ultimo aggiornamento: ${text.trim()}`;
+        document.body.appendChild(div);
+    } catch (e) {
+        console.error("Errore recupero data ultimo aggiornamento", e);
+    }
+}
 
 // Avvia il caricamento della mappa
 initMap();

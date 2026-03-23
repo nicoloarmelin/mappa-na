@@ -2550,3 +2550,20 @@ body.static-mode #edit-info-btn,
 body.static-mode #empty-page-placeholder {
     display: none !important;
 }
+
+/* ==========================================
+   LAST UPDATE OVERLAY
+   ========================================== */
+#last-update-overlay {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    z-index: 9999;
+    font-size: 0.75rem;
+    color: #333;
+    opacity: 0.6;
+    pointer-events: none; /* Non intralcia la mappa sottostante */
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
