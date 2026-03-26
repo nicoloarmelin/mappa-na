@@ -1,0 +1,206 @@
+/* =========================================================================
+   Universal Glassmorphism Theme - Brand Guidelines
+   =========================================================================
+   Questo file contiene tutte le variabili CSS e le classi di utilità 
+   estratte dal design originale per poter essere applicate a qualsiasi
+   nuovo sito o applicazione web, mantenendo intatto lo stile visivo.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    /* =========================================
+       1. COLOR PALETTE
+       ========================================= */
+    /* Backgrounds */
+    --color-bg-light: #cecece;         /* Sfondo principale chiaro (Silver) */
+    --color-bg-dark: #141414;          /* Sfondo principale scuro */
+
+    /* Brand/Accent Colors */
+    --color-primary: #FF4D00;          /* Arancio principale (Link, Focus) */
+    --color-primary-light: rgba(255, 77, 0, 0.1); /* Arancio trasparente per hover/backgrounds */
+    --color-secondary: #FF7B00;        /* Arancio chiaro (usato per il dark theme) */
+    
+    /* Semantic Actions */
+    --color-action-edit: #ffc107;      /* Giallo per azioni di modifica */
+    --color-action-edit-bg: rgba(255, 193, 7, 0.15);
+    --color-action-delete: #dc3545;    /* Rosso per azioni distruttive */
+    --color-action-delete-bg: rgba(220, 53, 69, 0.15);
+    
+    /* Text Colors (Light Theme) */
+    --color-text-heading: #111111;
+    --color-text-main: #333333;
+    --color-text-muted: #555555;
+    
+    /* Text Colors (Dark Theme) */
+    --color-text-heading-dark: #ffffff;
+    --color-text-main-dark: #eeeeee;
+    --color-text-muted-dark: #aaaaaa;
+
+    /* =========================================
+       2. TYPOGRAPHY SYSTEM
+       ========================================= */
+    --font-heading: 'Outfit', sans-serif; /* Per Titoli, Bottoni importanti, Interfacce chiave */
+    --font-body: 'Inter', sans-serif;     /* Per testi lunghi, paragrafi, body copy */
+    --font-mono: 'Space Mono', monospace; /* Per meta-informazioni, etichette, codici */
+
+    --text-xs: 0.7rem;    /* 11.2px - Micro text, etichette laterali */
+    --text-sm: 0.8rem;    /* 12.8px - Metadati, piccoli bottoni */
+    --text-base: 0.95rem; /* 15.2px - Testo di default, paragrafi */
+    --text-md: 1.1rem;    /* 17.6px - Sottotitoli, testo in evidenza */
+    --text-lg: 1.25rem;   /* 20px   - Titoli secondari (h3) */
+    --text-xl: 1.6rem;    /* 25.6px - Titoli principali (h1, h2) */
+
+    /* =========================================
+       3. BORDER RADIUS SYSTEM
+       ========================================= */
+    --radius-sm: 10px; /* Input, piccoli bottoni, tag */
+    --radius-md: 18px; /* Bottoni standard, dropdowns */
+    --radius-lg: 24px; /* Pannelli principali, modali, card estese */
+    --radius-pill: 999px; /* Elementi perfettamente circolari/pillole */
+
+    /* =========================================
+       4. REFINED GLASSMORPHISM SYSTEM
+       ========================================= */
+    
+    /* LIGHT GLASS (Elementi flottanti leggeri, bottoni, searchbar, filtri) */
+    --glass-filter-light: blur(12px) saturate(150%);
+    --glass-bg-light: rgba(255, 255, 255, 0.25);
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.4);
+    --glass-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    /* DEEP GLASS (Pannelli laterali, Dropdown enormi, Modali profonde) */
+    --glass-filter-deep: blur(40px) saturate(180%);
+    --glass-bg-deep: rgba(255, 255, 255, 0.15);
+    --glass-border-deep: 1px solid rgba(255, 255, 255, 0.4);
+    --glass-shadow-deep: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 15px 50px rgba(0, 0, 0, 0.2);
+
+    /* DARK GLASS (Modali Dark Theme, Focus Casi Studio) */
+    --glass-bg-dark-theme: rgba(20, 20, 20, 0.85);
+    --glass-border-dark-theme: 1px solid rgba(255, 255, 255, 0.15);
+    --glass-shadow-dark-theme: 0 20px 60px rgba(0, 0, 0, 0.5);
+    
+    /* =========================================
+       5. ANIMATION & TRANSITIONS
+       ========================================= */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-slow: 0.4s ease;
+    --transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* =========================================================================
+   UTILITY CLASSES (Da usare nel codice HTML per applicare i temi)
+   ========================================================================= */
+
+/* --- Typography --- */
+.font-heading { font-family: var(--font-heading); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+/* --- Containers & Backgrounds --- */
+.bg-default { background-color: var(--color-bg-light); color: var(--color-text-main); }
+.bg-dark { background-color: var(--color-bg-dark); color: var(--color-text-main-dark); }
+
+/* --- Glassmorphism Panels --- */
+.glass-panel-light {
+    background: var(--glass-bg-light);
+    backdrop-filter: var(--glass-filter-light);
+    -webkit-backdrop-filter: var(--glass-filter-light);
+    border: var(--glass-border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow-light);
+}
+
+.glass-panel-deep {
+    background: var(--glass-bg-deep);
+    backdrop-filter: var(--glass-filter-deep);
+    -webkit-backdrop-filter: var(--glass-filter-deep);
+    border: var(--glass-border-deep);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow-deep);
+}
+
+.glass-panel-dark {
+    background: var(--glass-bg-dark-theme);
+    backdrop-filter: var(--glass-filter-deep);
+    -webkit-backdrop-filter: var(--glass-filter-deep);
+    border: var(--glass-border-dark-theme);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow-dark-theme);
+    color: var(--color-text-main-dark);
+}
+
+/* --- Buttons --- */
+.glass-btn {
+    background: var(--glass-bg-light);
+    backdrop-filter: var(--glass-filter-light);
+    -webkit-backdrop-filter: var(--glass-filter-light);
+    border: var(--glass-border-light);
+    border-radius: var(--radius-md);
+    padding: 8px 15px;
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-heading);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.glass-btn:active {
+    transform: translateY(0);
+}
+
+.glass-btn-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary-light);
+}
+
+.glass-btn-primary:hover {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 0, 0.3);
+}
+
+/* --- Styled Links & Prose --- */
+.prose h1, .prose h2, .prose h3 {
+    font-family: var(--font-heading);
+    color: var(--color-text-heading);
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.prose p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text-main);
+}
+
+.prose a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-primary);
+    transition: color var(--transition-fast);
+}
+
+.prose a:hover {
+    color: var(--color-text-heading);
+    border-bottom-color: var(--color-text-heading);
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--color-primary);
+    margin: 10px 0;
+    padding: 5px 15px;
+    background: var(--color-primary-light);
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+}

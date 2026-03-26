@@ -454,7 +454,13 @@ function drawMap() {
         ...(data.caseStudies || []).map(d => ({ ...d, type: 'casestudy' }))
     ];
 
-    links = data.links.map(d => ({
+    const validLinks = data.links.filter(l => {
+        const sourceId = l.paper || l.caseStudy || l.source;
+        const targetId = l.keyword || l.target;
+        return nodes.find(n => n.id === sourceId) && nodes.find(n => n.id === targetId);
+    });
+
+    links = validLinks.map(d => ({
         source: d.paper || d.caseStudy,
         target: d.keyword
     }));
@@ -2224,7 +2230,7 @@ function renderList(type, filterText = "") {
                 editBtn.className = "action-btn edit-btn";
                 editBtn.innerHTML = "✎";
                 editBtn.title = "Modifica";
-                editBtn.onclick = (e) => { e.stopPropagation(); openEditModal(item, type); };
+                editBtn.onclick = (e) => { e.stopPropagation(); openEditModal(item, item.type || type); };
                 actions.appendChild(editBtn);
             }
 
@@ -2239,7 +2245,7 @@ function renderList(type, filterText = "") {
                 e.stopPropagation();
                 if (deleteBtn.classList.contains("confirm-mode")) {
                     clearTimeout(confirmTimeout);
-                    confirmDelete(item.id, type, itemDiv);
+                    confirmDelete(item.id, item.type || type, itemDiv);
                 } else {
                     deleteBtn.classList.add("confirm-mode");
                     deleteBtn.innerHTML = "Conferma ✖";

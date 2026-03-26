@@ -391,13 +391,31 @@
     ],
     "caseStudies": [
         {
-            "id": "c_custom_1772534229098",
-            "title": "prova caso studio",
-            "author": "",
-            "year": "2222",
-            "area": "Design",
-            "url": "",
-            "info": ""
+            "id": "c_custom_1774519388263",
+            "title": "Exploring Design of Multi-Agent LLM Dialogues for Research Ideation",
+            "author": "Keisuke Ueda, Wataru Hirota, Takuto Asakura, Takahiro Omi, Kosuke Takahashi, Kosuke Arima, Tatsuya Ishigaki",
+            "year": "2025",
+            "area": "Agent AI",
+            "url": "https://arxiv.org/html/2507.08350v1",
+            "info": "> **AI Summary: Abstract**\n> Il paper esplora come progettare dialoghi multi-agente tra LLM per ottimizzare la generazione di idee di ricerca scientifica. Gli autori testano sistematicamente sette configurazioni di pipeline — variando numero di agenti, profondità dei cicli critica-revisione e diversità delle persona assegnate — su sette topic di AI e NLP, producendo circa 7000 idee totali. I risultati mostrano che aumentare la profondità delle interazioni e l'eterogeneità dei critici massimizza sia la diversità che la fattibilità delle proposte, senza sacrificare la qualità media.\n>\n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**I topic delle idee generate**\nIl paper adotta i sette topic standard del benchmark NLP di Si et al. (2025), estratti dalle Call for Papers di conferenze recenti: **bias**, **coding**, **safety**, **multilinguality**, **factuality**, **math** e **uncertainty**. Su ciascun topic, gli agenti producono proposal sperimentali complete — titolo, motivazione, metodo proposto, baseline e metriche — con un livello di dettaglio paragonabile a quello di un abstract esteso. Le idee spaziano da studi valutativi (nuovi benchmark per bias intersezionale o lingue low-resource) a proposte metodologiche (strategie di fine-tuning, architetture neuro-symbolic) fino a sistemi progettuali end-to-end (pipeline di red-teaming automatizzato, RAG con verifica claim in-loop).\n\n**Le 7 configurazioni sperimentali**\nLa ricerca confronta sette architetture di dialogo multi-agente costruite attorno a un ciclo **ideazione → critica → revisione**. La baseline (config. 1) prevede un singolo ideatore e un singolo critico generalista con un solo ciclo. Le configurazioni successive aumentano il **parallelismo** (più ideatori o più critici in simultanea), la **profondità** (fino a K=3 cicli di revisione) e la **diversità** delle persona, assegnando agli agenti expertise di dominio specifico — AI-Physics, AI-Chem, Critico-NLP, Critico-CV, Critico-ML — fino alla config. 7, dove tutti gli agenti sono dominio-specifici ed eterogenei.\n\n**Risultati chiave e trade-off**\n\n> **Parallelismo agenti**\n> Aggiungere più ideatori o critici in parallelo aumenta la diversità delle idee, ma fa calare la qualità media. È un trade-off netto: si guadagna ampiezza, si perde profondità.\n\n> **Profondità (K cicli)**\n> Aumentare i cicli critica-revisione è l'unica leva senza controindicazioni: la diversità cresce e la qualità rimane stabile. È il guadagno netto della ricerca.\n\n> **Diversità persona**\n> Assegnare agli agenti expertise di dominio specifico ed eterogeneo, soprattutto sul lato dei critici, migliora sia la fattibilità che l'originalità delle idee finali. Contano di più i critici eterogenei che gli ideatori eterogenei.\n\n> **Raccomandazione operativa**\n> La configurazione ottimale usa K≥3 cicli di critica-revisione con critici dominio-specifici eterogenei. Sconsigliato puntare solo sull'aumento di agenti ideatori paralleli: costo computazionale alto, rendimenti decrescenti sulla qualità.\n",
+            "images": [
+                "/uploads/img_1774519388282-190135051.png",
+                "/uploads/img_1774519388285-892778705.png"
+            ]
+        },
+        {
+            "id": "c_custom_1774521099201",
+            "title": "YES AND: A Generative AI Multi-Agent Framework for Enhancing Diversity of Thought in Individual Ideation for Problem-Solving Through Confidence-Based Agent Turn-Taking",
+            "author": "Pratik Ghosh, Sean Rintel",
+            "year": "2025",
+            "area": "Agent AI",
+            "url": "https://dl.acm.org/doi/full/10.1145/3706599.3720142",
+            "info": "> **AI Summary: Abstract**\n> Il paper presenta **YES AND**, un framework multi-agente basato su GenAI che simula la diversità di pensiero per supportare l'ideazione individuale in contesti organizzativi. Il sistema permette a un singolo utente di dialogare con più agenti dotati di expertise diverse, che si alternano autonomamente grazie a un meccanismo originale di turn-taking basato sulla confidenza. L'obiettivo è colmare il gap di accesso a prospettive eterogenee che i professionisti spesso incontrano, evitando al tempo stesso le patologie classiche dell'ideazione collettiva — groupthink, social loafing e production blocking — senza delegare la soluzione all'AI, ma preservando la creatività dell'utente.\n>\n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Architettura e meccanismo di turn-taking**\nYES AND evolve da una V1 lineare — dove gli agenti rispondevano in sequenza fissa — a una V2 conversazionale ispirata al modello di turn-taking di Sacks, Schegloff & Jefferson (1974). Ogni messaggio viene trasmesso in broadcast a tutti gli agenti, ciascuno dei quali valuta topic e intent e si auto-assegna un punteggio di confidenza da 0 a 10. Solo chi supera la soglia di 7 interviene; sotto soglia, l'agente risponde semplicemente \"hmm\". Chi è più confidente parla, può nominare il prossimo interlocutore, e l'utente può interrompere in qualsiasi momento per ridirigere la conversazione. Il prototipo include tre agenti con ruoli distinti — Designer, ML Researcher, Engineer — più un quarto agente, il **Sage**, che su richiesta distilla la conversazione in un seed di soluzione, non in una risposta definitiva, per preservare la creatività dell'utente.\n\n> 📎 *[immagine 1 — schema dell'architettura YES AND: problema di partenza, agenti, meccanismo di confidenza e flusso conversazionale V1 vs V2]*\n\n**Contributi, limiti e stato della ricerca**\nYES AND è un proof-of-concept presentato a CHI EA 2025 (Extended Abstracts): non include ancora una validazione empirica con utenti reali. I contributi dichiarati sono il meccanismo di confidenza per l'auto-selezione degli agenti, la figura del Sage come sintetizzatore non conclusivo, e la metafora del design improv come principio progettuale. I limiti principali riguardano le persona predefinite — non adattate al problema specifico —, la degradazione del contesto al crescere del log conversazionale, e il supporto al solo singolo utente. Il passo successivo dichiarato è uno user study con metriche di engagement, utilità percepita e impatto sulla creatività.\n\n> 📎 *[immagine 2 — schema dei contributi chiave, limitazioni dichiarate e direzioni future]*",
+            "images": [
+                "/uploads/img_1774521099212-650747829.png",
+                "/uploads/img_1774521099213-916178901.png",
+                "/uploads/img_1774521099216-992180073.png"
+            ]
         }
     ],
     "links": [
@@ -646,12 +664,24 @@
             "keyword": "k_custom_1772277113359"
         },
         {
-            "caseStudy": "c_custom_1772534229098",
-            "keyword": "k_custom_1772041424710"
+            "caseStudy": "c_custom_1774519388263",
+            "keyword": "k_custom_1772030219750"
         },
         {
-            "caseStudy": "c_custom_1772534229098",
-            "keyword": "k_custom_1772278610742"
+            "caseStudy": "c_custom_1774519388263",
+            "keyword": "k_custom_1772034457841"
+        },
+        {
+            "caseStudy": "c_custom_1774521099201",
+            "keyword": "k_custom_1772030219750"
+        },
+        {
+            "caseStudy": "c_custom_1774521099201",
+            "keyword": "k_custom_1772034457841"
+        },
+        {
+            "caseStudy": "c_custom_1774521099201",
+            "keyword": "k_custom_1772035988328"
         }
     ]
 }
