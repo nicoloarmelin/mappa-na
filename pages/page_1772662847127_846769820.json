@@ -293,6 +293,21 @@
             "images": [
                 "/uploads/img_1774534838629-254167435.png"
             ]
+        },
+        {
+            "id": "c_custom_1774605673706",
+            "title": "Reducing Design Fixation in Ideation by AI, with the Intervention of the Morphological Analysis Method ",
+            "author": "Yazdan Pargoshaei, Ebrahim Bagheri Taleghani, Khashayar Hojati Emami",
+            "year": "2025",
+            "area": "Cognitive Frameworks",
+            "url": "",
+            "info": "> **AI Summary: Abstract**\n> Il paper indaga se l'applicazione del metodo di analisi morfologica possa ridurre la design fixation nei processi di ideazione assistiti da AI generativa. Il problema di partenza è noto: quando si usano direttamente le keyword del brief di progetto come prompt per strumenti come Midjourney, l'AI tende a riprodurre pattern simili, aumentando anziché ridurre la fixation. La ricerca propone un approccio ibrido in tre fasi — scomposizione del problema, ideazione componente per componente, sintesi — e ne misura l'efficacia confrontando i risultati con quelli dell'ideazione AI diretta, su metriche di fixation, novità e numero di idee.\n>\n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Le due fasi a confronto**\nNella **Fase 1** (baseline), le keyword estratte direttamente dal brief vengono passate ad Midjourney come prompt unico, ottimizzato tramite ChatGPT. L'AI genera liberamente senza struttura. Nella **Fase 2**, prima di coinvolgere l'AI si costruisce una carta morfologica che scompone il prodotto — un deambulatore per anziani — nei suoi 7 parametri funzionali: giunto pieghevole, altezza, seduta, cestello, impugnatura, ruote, struttura. Midjourney viene poi interrogato separatamente per ciascun parametro, generando varianti visive componente per componente. Le soluzioni vengono infine sintetizzate tramite la funzione image-blending di Midjourney per produrre concept completi.\n\n> 📎 *[immagine 1 — Tabella 2: percentuale di fixation per parametro nelle due fasi (Phase 1 media 87,7% → Phase 2 media 37,5%)]*\n\n> 📎 *[immagine 2 — Tabella 3: punteggi di novità per parametro nelle due fasi (Phase 1 media 0,12 → Phase 2 media 0,62)]*\n\n**Risultati**\nI dati mostrano una riduzione netta della fixation: dalla media dell'87,7% nella Fase 1 al 37,5% nella Fase 2. Parallelamente, il punteggio medio di novità passa da 0,12 a 0,62 — un aumento di cinque volte. Il numero di idee non ripetitive sale da 18 a 78. Il metodo morfologico funziona perché costringe l'AI a trattare ogni componente come un problema autonomo, producendo un pool di soluzioni differenziate per ciascun parametro che nella sintesi finale possono combinarsi in modo inedito. Gli autori sottolineano che la fase più critica è la scomposizione iniziale del problema, che non va delegata all'AI ma supervisionata dal designer.",
+            "images": [
+                "/uploads/img_1774605673727-214129948.png",
+                "/uploads/img_1774605673733-244303287.png",
+                "/uploads/img_1774605673738-437274743.png",
+                "/uploads/img_1774605673749-460326093.png"
+            ]
         }
     ],
     "links": [
@@ -435,6 +450,18 @@
         {
             "caseStudy": "c_custom_1774534838615",
             "keyword": "k_custom_1774002792402"
+        },
+        {
+            "caseStudy": "c_custom_1774605673706",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "caseStudy": "c_custom_1774605673706",
+            "keyword": "k_custom_1774002761726"
+        },
+        {
+            "caseStudy": "c_custom_1774605673706",
+            "keyword": "k_custom_1774002921969"
         }
     ]
 }
