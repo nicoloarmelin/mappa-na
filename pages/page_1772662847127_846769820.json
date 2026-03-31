@@ -308,6 +308,19 @@
                 "/uploads/img_1774605673738-437274743.png",
                 "/uploads/img_1774605673749-460326093.png"
             ]
+        },
+        {
+            "id": "c_custom_1774951124421",
+            "title": "Physical, digital, and hybrid setups supporting card-based collaborative design ideation",
+            "author": "Caroline Lundqvist, Daniel Klinkhammer, Kim Halskov, Stefan Paul Feyer, Jeanette Falk Olesen, Nanna Inie, Harald Reiterer, Peter Dalsgaard",
+            "year": "2018",
+            "area": "Interaction Systems",
+            "url": "https://dl.acm.org/doi/10.1145/3240167.3240177",
+            "info": "> **AI Summary: Abstract**\n> Il paper confronta tre implementazioni dello stesso metodo di ideazione collaborativa basato su carte — l'Inspiration Card Workshop — in setup fisico, digitale e ibrido, per capire quali benefici e limiti ciascun approccio introduce nel processo creativo. Lo studio analizza i tre setup su cinque principi fondativi del metodo attraverso una combinazione di dati quantitativi (valutazione delle idee e Creativity Support Index) e analisi qualitativa di interviste e video-registrazioni. La conclusione è che il fisico non può essere sostituito dal digitale, ma può essere affiancato da un'integrazione leggera e mirata basata su tablet e stampante.\n>\n> *Nota: Questo è un AI Summary generato per contestualizzare la ricerca nel framework della mappa.*\n\n**Il problema e i tre setup**\nIl punto di partenza è un paradosso osservato nella pratica: anche quando il prodotto finale è digitale, i designer tendono a usare strumenti fisici nelle sessioni di ideazione collaborativa. Il paper indaga perché, testando tre implementazioni dello stesso metodo — ICW completamente fisico, iCard completamente digitale su tabletop interattivo, e RoI ibrido con rack fisico, stampante automatica e tablet. I cinque principi su cui si articola l'analisi sono: semplicità delle regole, apprendimento reciproco, ideazione collaborativa, creatività combinatoria ed esternalizzazione delle idee.\n\n> 📎 *[immagine 1 — schema della struttura del paper: domanda di ricerca, i tre setup a confronto, i 5 principi di analisi e il metodo dello studio]*\n\n**Findings e risultati**\nIl finding più critico riguarda la collaborazione: iCard, permettendo un solo input alla volta sul tabletop, crea attese implicite che interrompono il flusso e causano perdita di idee. ICW e RoI consentono invece divisione parallela dei compiti. Sul fronte della creatività combinatoria, le carte fisiche permettono arrangiamenti spontanei e flessibili — incluso girare alcune carte a faccia in giù per restringere il campo — un gesto impossibile da replicare nel digitale. Il RoI ibrido è stato percepito come troppo complesso hardware-wise: rack e schermo verticale giudicati superflui. L'unica combinazione digitale che si è integrata senza attrito è tablet + stampante, che permette di creare e stampare nuove carte al volo mantenendo il flusso fisico. Quantitativamente, ICW e RoI ottengono punteggi CSI simili, mentre iCard risulta sempre il più basso. La raccomandazione finale è un workflow ibrido leggero: carte fisiche come backbone, tablet individuali come finestre sul digitale, stampante come ponte tra i due mondi.\n\n> 📎 *[immagine 2 — schema dei findings qualitativi per principio e risultati quantitativi CSI: confronto ICW ≈ RoI vs iCard, con finding positivi e critici per ciascuna dimensione]*",
+            "images": [
+                "/uploads/img_1774951124447-334055510.png",
+                "/uploads/img_1774951124457-602328746.png"
+            ]
         }
     ],
     "links": [
@@ -462,6 +475,14 @@
         {
             "caseStudy": "c_custom_1774605673706",
             "keyword": "k_custom_1774002921969"
+        },
+        {
+            "caseStudy": "c_custom_1774951124421",
+            "keyword": "k_custom_1774002417379"
+        },
+        {
+            "caseStudy": "c_custom_1774951124421",
+            "keyword": "k_custom_1774002761726"
         }
     ]
 }
