@@ -1,24 +1,163 @@
 {
     "areas": [
         {
-            "name": "Agent AI",
-            "color": "#4A90D9"
+            "name": "Libro",
+            "color": "#7b68ee"
         },
         {
-            "name": "Design",
-            "color": "#7B68EE"
+            "name": "Caso Studio",
+            "color": "#eb0f8f"
         },
         {
-            "name": "Privacy",
-            "color": "#e89f21"
-        },
-        {
-            "name": "Surveillance",
-            "color": "#8c7a6e"
+            "name": "Tesi",
+            "color": "#68c6ee"
         }
     ],
-    "keywords": [],
-    "papers": [],
+    "keywords": [
+        {
+            "id": "k_custom_1775053482714",
+            "label": "Brand",
+            "area": "Tesi",
+            "info": ""
+        },
+        {
+            "id": "k_custom_1775053493039",
+            "label": "Effimero",
+            "area": "Tesi",
+            "info": ""
+        },
+        {
+            "id": "k_custom_1775053506389",
+            "label": "Identità",
+            "area": "Tesi",
+            "info": ""
+        },
+        {
+            "id": "k_custom_1775057154594",
+            "label": "Sistema",
+            "area": "Tesi",
+            "info": ""
+        },
+        {
+            "id": "k_custom_1775057548192",
+            "label": "Contesto",
+            "area": "Tesi",
+            "info": ""
+        },
+        {
+            "id": "k_custom_1775057772786",
+            "label": "Durevole",
+            "area": "Tesi",
+            "info": ""
+        }
+    ],
+    "papers": [
+        {
+            "id": "p_custom_1775052222853",
+            "title": "Brand Identikit. Trasformare un marchio in una marca",
+            "author": "Gaetano Grizzanti",
+            "year": "1 Gennaio 2011",
+            "area": "Libro",
+            "url": "",
+            "info": "Manuale culturale, tecnico e pedagogico sull'identità di marca e d'impresa, strutturato in quattro sezioni: le prime due trattano rispettivamente \"Marca\" e \"Marchio\" come fondamenta nozionistiche della brand identity; la terza racconta le storie di venti marche riconosciute selezionate per rappresentatività; l'ultima raccoglie spunti di attualità sul mondo del brand. Il volume contiene il metodo Univisual/Grizzanti per la strategia di marca.\n\n> *Rilevanza per la tesi:*\nIl libro è sostanzialmente un riferimento critico per il tuo lavoro: opera esattamente sul piano che la tua tesi mette in discussione, ovvero l'identità visiva pensata in termini di costruzione duratura di marca (brand = continuità, reputazione accumulata). Utile da citare come posizione teorica dominante da cui la tua ricerca si distanzia — il punto di partenza da cui \"progettare per sparire\" si differenzia strutturalmente.",
+            "images": [
+                "/uploads/img_1775052222867-659778435.jpg"
+            ]
+        },
+        {
+            "id": "p_custom_1775057124911",
+            "title": "Branding D.O. Progettare la marca",
+            "author": "Emanuele Carmi",
+            "year": "01 Gennaio 2020",
+            "area": "Libro",
+            "url": "",
+            "info": "Analizza il processo di costruzione di una marca come sistema coerente di significati, valori e linguaggi visivi. Il libro approfondisce il ruolo del design nella definizione dell’identità di brand, ponendo attenzione alla relazione tra strategia, progetto e percezione. Attraverso un approccio progettuale, l’autore mostra come sviluppare marchi autentici e riconoscibili, capaci di generare valore e connessione con il pubblico."
+        },
+        {
+            "id": "p_custom_1775057537676",
+            "title": "Logo in Real Life",
+            "author": "Matteo Galluzzo",
+            "year": "01 Gennaio 2022",
+            "area": "Libro",
+            "url": "",
+            "info": "Esplora il ruolo del logo nel contesto reale, analizzando come i segni grafici prendono vita attraverso applicazioni concrete. Il libro raccoglie esempi e casi studio che mostrano l’importanza dell’uso del logo nei diversi touchpoint, evidenziando come coerenza, adattabilità e contesto influenzino la percezione del brand. Un riferimento pratico per comprendere come progettare identità visive efficaci e funzionali nel mondo reale."
+        },
+        {
+            "id": "p_custom_1775057652824",
+            "title": "The Brand Handbook",
+            "author": "Wally Olins",
+            "year": "01 Gennaio 2008",
+            "area": "Libro",
+            "url": "",
+            "info": "è una guida essenziale al mondo del branding, in cui Wally Olins sintetizza principi, metodi e pratiche per costruire e gestire una marca efficace. Il libro affronta temi come identità, posizionamento, architettura di brand e comunicazione, offrendo esempi concreti e un approccio chiaro e accessibile. Un testo fondamentale per comprendere il ruolo strategico del brand nelle organizzazioni contemporanee."
+        },
+        {
+            "id": "p_custom_1775057729532",
+            "title": "What is Branding?",
+            "author": "Matthew Healey",
+            "year": "01 Gennaio 2008",
+            "area": "Libro",
+            "url": "",
+            "info": "Un’introduzione chiara e accessibile ai principi fondamentali del branding. Il libro spiega cosa significa costruire una marca, analizzandone gli elementi chiave come identità, valori, posizionamento e percezione. Attraverso esempi visivi e casi studio, offre una panoramica utile sia per designer che per professionisti della comunicazione, evidenziando il ruolo del branding nel creare connessioni significative tra brand e pubblico."
+        }
+    ],
     "caseStudies": [],
-    "links": []
+    "links": [
+        {
+            "paper": "p_custom_1775052222853",
+            "keyword": "k_custom_1775053482714"
+        },
+        {
+            "paper": "p_custom_1775052222853",
+            "keyword": "k_custom_1775053506389"
+        },
+        {
+            "paper": "p_custom_1775057124911",
+            "keyword": "k_custom_1775053482714"
+        },
+        {
+            "paper": "p_custom_1775057124911",
+            "keyword": "k_custom_1775053506389"
+        },
+        {
+            "paper": "p_custom_1775057124911",
+            "keyword": "k_custom_1775057154594"
+        },
+        {
+            "paper": "p_custom_1775057537676",
+            "keyword": "k_custom_1775053482714"
+        },
+        {
+            "paper": "p_custom_1775057537676",
+            "keyword": "k_custom_1775057154594"
+        },
+        {
+            "paper": "p_custom_1775057537676",
+            "keyword": "k_custom_1775057548192"
+        },
+        {
+            "paper": "p_custom_1775057652824",
+            "keyword": "k_custom_1775053482714"
+        },
+        {
+            "paper": "p_custom_1775057652824",
+            "keyword": "k_custom_1775057154594"
+        },
+        {
+            "paper": "p_custom_1775057652824",
+            "keyword": "k_custom_1775057548192"
+        },
+        {
+            "paper": "p_custom_1775057729532",
+            "keyword": "k_custom_1775053482714"
+        },
+        {
+            "paper": "p_custom_1775057729532",
+            "keyword": "k_custom_1775053506389"
+        },
+        {
+            "paper": "p_custom_1775057729532",
+            "keyword": "k_custom_1775057154594"
+        }
+    ]
 }
