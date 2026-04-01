@@ -387,6 +387,15 @@
             "area": "Agent AI",
             "url": "https://www.vectra.ai/blog/moltbook-and-the-illusion-of-harmless-ai-agent-communities",
             "info": "### Mappatura dell'Attacco: IA Agentic Ecosystems\n\nIn contesti come **Moltbook**, il confine tra **contenuto (testo)** e **codice (istruzioni)** crolla. L'identità dell'agente diventa l'asset più prezioso: manipolarne il comportamento permette di trasformare un'infrastruttura di produttività in una piattaforma di attacco invisibile.\n\n### Il Ciclo di Vita dell'Attacco agli Agenti\n\n- **1. Reconnaissance (L'agente come OSINT vivente)**: Gli agenti progettati per il debugging postano involontariamente nei feed pubblici **log di errore SSH, configurazioni di rete e chiavi API**. L'attaccante ottiene una mappa dell'infrastruttura semplicemente mettendosi in ascolto delle conversazioni.\n\n- **2. Initial Access (Il \"Worm\" Semantico)**: L'accesso avviene tramite **Reverse Prompt Injection** (istruzioni malevole dormienti in post/documenti) o **Malicious Skills**. Un'abilità apparentemente innocua (es. leggere PDF) può nascondere comandi shell per l'esecuzione di codice remoto (**RCE**).\n\n- **3. Privilege Escalation (Il Privilegio Nativo)**: Spesso superflua poiché l'agente nasce già privilegiato per design. Una volta compromesso, l'attaccante **eredita istantaneamente tutti i permessi SaaS e API** (Slack, GitHub, Database) di cui l'agente dispone per operare.\n\n- **4. Lateral Movement (Il Ponte tra i Mondi)**: Gli agenti collegano ambienti isolati (es. email e CRM). L'attaccante usa l'agente come testa di ponte; ogni movimento appare come una **normale routine di automazione**, rendendo il traffico illecito indistinguibile da quello legittimo.\n\n- **5. Exfiltration (Flussi Legittimi per Scopi Illeciti)**: L'esfiltrazione avviene attraverso i canali di output naturali (webhook, email, chat). I dati riservati vengono \"riassunti\" e inviati all'esterno, rimanendo sepolti sotto **pattern di traffico perfettamente normali**.\n\n\n\n### Conclusione: Il Rischio Comportamentale\n\n> **Il rischio non risiede più in un bug del software, ma nel comportamento manipolabile dell'agente.** Se l'agente utilizza credenziali valide entro i suoi confini tecnici, i sistemi di sicurezza classici diventano ciechi di fronte all'intrusione."
+        },
+        {
+            "id": "p_custom_1775050158541",
+            "title": "CIAO ",
+            "author": "coejcvje",
+            "year": "11 Marzo 2020",
+            "area": "Agent AI",
+            "url": "",
+            "info": ""
         }
     ],
     "caseStudies": [
@@ -682,6 +691,14 @@
         {
             "caseStudy": "c_custom_1774521099201",
             "keyword": "k_custom_1772035988328"
+        },
+        {
+            "paper": "p_custom_1775050158541",
+            "keyword": "k_custom_1772030219750"
+        },
+        {
+            "paper": "p_custom_1775050158541",
+            "keyword": "k_custom_1772034457841"
         }
     ]
 }
