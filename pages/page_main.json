@@ -1,163 +1,221 @@
 {
     "areas": [
         {
-            "name": "Libro",
+            "name": "Design della comunicazione",
             "color": "#7b68ee"
         },
         {
-            "name": "Caso Studio",
-            "color": "#eb0f8f"
+            "name": "Teoria del brand",
+            "color": "#ff00a2"
         },
         {
-            "name": "Tesi",
-            "color": "#68c6ee"
+            "name": "Temporalità",
+            "color": "#ff6600"
+        },
+        {
+            "name": "Storia del design",
+            "color": "#00d5ff"
+        },
+        {
+            "name": "Contesto",
+            "color": "#9de166"
         }
     ],
     "keywords": [
         {
-            "id": "k_custom_1775053482714",
-            "label": "Brand",
-            "area": "Tesi",
-            "info": ""
+            "id": "k_custom_1776351958334",
+            "label": "Branding",
+            "area": "Teoria del brand",
+            "info": "È l’insieme di attività strategiche e creative volte a distinguere un prodotto, un servizio o un’azienda dalla concorrenza. Non si limita all'aspetto visivo (logo, colori), ma include il tono di voce, i valori e la \"promessa\" che l'azienda fa al cliente.\n"
         },
         {
-            "id": "k_custom_1775053493039",
+            "id": "k_custom_1776353210434",
+            "label": "Identità visiva",
+            "area": "Teoria del brand",
+            "info": "Il sistema coordinato di elementi grafici (logo, palette, tipografia, applicazioni) che rende riconoscibile un'entità in un contesto dato. Nella tesi è il termine tecnico centrale: non brand, non marchio, ma sistema progettato con una logica interna propria."
+        },
+        {
+            "id": "k_custom_1776353277525",
             "label": "Effimero",
-            "area": "Tesi",
-            "info": ""
+            "area": "Temporalità",
+            "info": "\"Effimero\" (dal greco ephémeros, \"che dura un solo giorno\") descrive qualcosa di breve durata, transitorio, fugace o passeggero.\n\n>Progettato per finire. Non come limite ma come condizione strutturante. "
         },
         {
-            "id": "k_custom_1775053506389",
-            "label": "Identità",
-            "area": "Tesi",
-            "info": ""
+            "id": "k_custom_1776353303474",
+            "label": "Ciclo di vita",
+            "area": "Temporalità",
+            "info": "Le tre fasi attraverso cui passa un'identità di evento: presentazione e promozione, saturazione, post. Ogni fase ha funzioni comunicative diverse e richiede strategie progettuali diverse."
         },
         {
-            "id": "k_custom_1775057154594",
-            "label": "Sistema",
-            "area": "Tesi",
-            "info": ""
+            "id": "k_custom_1776353624258",
+            "label": "Sintesi culturale",
+            "area": "Contesto",
+            "info": "La capacità di un'identità visiva di condensare in forma visiva le tensioni, i valori o le specificità culturali del contesto in cui nasce. "
         },
         {
-            "id": "k_custom_1775057548192",
-            "label": "Contesto",
-            "area": "Tesi",
-            "info": ""
-        },
-        {
-            "id": "k_custom_1775057772786",
-            "label": "Durevole",
-            "area": "Tesi",
-            "info": ""
+            "id": "k_custom_1776353905028",
+            "label": "Evento",
+            "area": "Temporalità",
+            "info": "Un'occorrenza circoscritta nel tempo, con una data di inizio e una di fine dichiarate istituzionalmente. "
         }
     ],
     "papers": [
         {
-            "id": "p_custom_1775052222853",
-            "title": "Brand Identikit. Trasformare un marchio in una marca",
+            "id": "p_custom_1776351324916",
+            "title": "Brand Identikit",
             "author": "Gaetano Grizzanti",
-            "year": "1 Gennaio 2011",
-            "area": "Libro",
+            "year": "01 Gennaio 2011",
+            "area": "Teoria del brand",
             "url": "",
-            "info": "Manuale culturale, tecnico e pedagogico sull'identità di marca e d'impresa, strutturato in quattro sezioni: le prime due trattano rispettivamente \"Marca\" e \"Marchio\" come fondamenta nozionistiche della brand identity; la terza racconta le storie di venti marche riconosciute selezionate per rappresentatività; l'ultima raccoglie spunti di attualità sul mondo del brand. Il volume contiene il metodo Univisual/Grizzanti per la strategia di marca.\n\n> *Rilevanza per la tesi:*\nIl libro è sostanzialmente un riferimento critico per il tuo lavoro: opera esattamente sul piano che la tua tesi mette in discussione, ovvero l'identità visiva pensata in termini di costruzione duratura di marca (brand = continuità, reputazione accumulata). Utile da citare come posizione teorica dominante da cui la tua ricerca si distanzia — il punto di partenza da cui \"progettare per sparire\" si differenzia strutturalmente.",
+            "info": "Manuale italiano sulla brand identity come disciplina autonoma. Definisce con precisione la differenza tra brand (sistema di reputazione che si costruisce nel tempo), marchio (segno grafico) e identità visiva (sistema coordinato di elementi visivi). \nStrutturato in quattro sezioni: marca, marchio, casi di studio, attualità.\n\n>Fornisce il vocabolario tecnico di base per la distinzione fondamentale della tesi: le identità effimere non costruiscono brand. Grizzanti dimostra che il brand richiede continuità e sedimentazione nel tempo — esattamente ciò che un'identità di evento non può avere. Usarlo significa poter affermare con precisione cosa le identità effimere non sono.",
             "images": [
-                "/uploads/img_1775052222867-659778435.jpg"
+                "/uploads/img_1776351324929-643318885.jpg"
             ]
         },
         {
-            "id": "p_custom_1775057124911",
-            "title": "Branding D.O. Progettare la marca",
-            "author": "Emanuele Carmi",
-            "year": "01 Gennaio 2020",
-            "area": "Libro",
+            "id": "p_custom_1776351860177",
+            "title": "Marks of Excellence",
+            "author": "Per Mollerup",
+            "year": "01 Marzo 1997",
+            "area": "Teoria del brand",
             "url": "",
-            "info": "Analizza il processo di costruzione di una marca come sistema coerente di significati, valori e linguaggi visivi. Il libro approfondisce il ruolo del design nella definizione dell’identità di brand, ponendo attenzione alla relazione tra strategia, progetto e percezione. Attraverso un approccio progettuale, l’autore mostra come sviluppare marchi autentici e riconoscibili, capaci di generare valore e connessione con il pubblico."
+            "info": "Una tassonomia completa della storia e della classificazione dei marchi.\n\n>Rappresenta lo stato dell'arte della letteratura tassonomica che ignora la variabile temporale. Lo userai per dimostrare che, storicamente, la classificazione dei marchi si è basata sulla forma e non sul ciclo di vita del sistema."
         },
         {
-            "id": "p_custom_1775057537676",
-            "title": "Logo in Real Life",
-            "author": "Matteo Galluzzo",
-            "year": "01 Gennaio 2022",
-            "area": "Libro",
+            "id": "p_custom_1776354258179",
+            "title": "Critica portatile al visual design",
+            "author": "Riccardo Falcinelli",
+            "year": "01 Gennaio 2014",
+            "area": "Design della comunicazione",
             "url": "",
-            "info": "Esplora il ruolo del logo nel contesto reale, analizzando come i segni grafici prendono vita attraverso applicazioni concrete. Il libro raccoglie esempi e casi studio che mostrano l’importanza dell’uso del logo nei diversi touchpoint, evidenziando come coerenza, adattabilità e contesto influenzino la percezione del brand. Un riferimento pratico per comprendere come progettare identità visive efficaci e funzionali nel mondo reale."
+            "info": "Analisi critica del funzionamento delle immagini nella comunicazione contemporanea. Falcinelli esamina come i sistemi visivi producono significato, come la forma comunica indipendentemente dal contenuto dichiarato, e come il design grafico costruisce percezione culturale attraverso scelte apparentemente tecniche.\n\n>È il riferimento metodologico per analizzare i casi studio al livello visivo concreto richiesto da Guida. Permette di ancorare ogni affermazione analitica a un artefatto specifico — non \"il sistema di Aicher era coerente\" ma \"la griglia a 45 gradi produce questo effetto specifico su questo artefatto specifico\"."
         },
         {
-            "id": "p_custom_1775057652824",
-            "title": "The Brand Handbook",
-            "author": "Wally Olins",
-            "year": "01 Gennaio 2008",
-            "area": "Libro",
+            "id": "p_custom_1776354345344",
+            "title": "Cromorama. Come il colore ha cambiato il nostro sguardo",
+            "author": "Riccardo Falcinelli",
+            "year": "02 Gennaio 2017",
+            "area": "Design della comunicazione",
             "url": "",
-            "info": "è una guida essenziale al mondo del branding, in cui Wally Olins sintetizza principi, metodi e pratiche per costruire e gestire una marca efficace. Il libro affronta temi come identità, posizionamento, architettura di brand e comunicazione, offrendo esempi concreti e un approccio chiaro e accessibile. Un testo fondamentale per comprendere il ruolo strategico del brand nelle organizzazioni contemporanee."
+            "info": "Racconto storico e culturale del colore come sistema di significazione. Falcinelli mostra come le scelte cromatiche non siano mai neutre ma sempre cariche di storia, tecnologia e percezione collettiva — e come cambino nel tempo con i media e i contesti culturali.\n\n>Rilevante per l'analisi della palette nei casi studio. In particolare per Monaco 1972, dove la scelta deliberata di escludere rosso, nero e oro della bandiera tedesca è una decisione politica prima che estetica — e Falcinelli fornisce gli strumenti per leggerla come tale."
         },
         {
-            "id": "p_custom_1775057729532",
-            "title": "What is Branding?",
-            "author": "Matthew Healey",
-            "year": "01 Gennaio 2008",
-            "area": "Libro",
+            "id": "p_custom_1776354423285",
+            "title": "Figure. Come funzionano le immagini dal Rinascimento a Instagram",
+            "author": "Riccardo Falcinelli ",
+            "year": "04 Febbraio 2020",
+            "area": "Design della comunicazione",
             "url": "",
-            "info": "Un’introduzione chiara e accessibile ai principi fondamentali del branding. Il libro spiega cosa significa costruire una marca, analizzandone gli elementi chiave come identità, valori, posizionamento e percezione. Attraverso esempi visivi e casi studio, offre una panoramica utile sia per designer che per professionisti della comunicazione, evidenziando il ruolo del branding nel creare connessioni significative tra brand e pubblico."
+            "info": "Analisi del funzionamento delle immagini nel tempo lungo, dalla pittura rinascimentale ai social media. Falcinelli mostra come certe immagini sopravvivono culturalmente e altre no, e quali meccanismi formali determinano questa differenza.\n\n>Utile per il capitolo teorico sulla sedimentazione. Permette di ragionare su perché alcune identità effimere diventano iconiche a distanza di decenni — come Ciao di Italia 90 — mentre altre, tecnicamente più sofisticate, scompaiono con l'evento."
+        },
+        {
+            "id": "p_custom_1776354564495",
+            "title": "Guidelines and Standards for the Visual Design. The Games of the XX Olympiad Munich 1972",
+            "author": "Otl Aicher ",
+            "year": "12 Giugno 1967",
+            "area": "Storia del design",
+            "url": "",
+            "info": "\nIl manuale originale completato nel 1967 per i Giochi di Monaco 1972. Sistema flessibile di colori, forme e caratteri su 22 fogli pieghevoli che regola oltre 100 ambiti progettuali — dalla segnaletica ai biglietti d'ingresso, dai poster alle uniformi. È il documento che Aicher e il suo team usavano quotidianamente per gestire il sistema.\n\n>Fonte primaria assoluta per il caso Monaco 1972. Non è un libro su quel sistema visivo — è il sistema visivo. Permette di analizzare dall'interno le scelte progettuali specifiche, la logica della griglia, il principio generativo della palette, il funzionamento dei pictogrammi. Nessuna analisi di Monaco 1972 è possibile senza averlo consultato."
+        },
+        {
+            "id": "p_custom_1776354698224",
+            "title": "Olympic Games. The Design",
+            "author": "Markus Osterwalder",
+            "year": "29 Giugno 2019",
+            "area": "Storia del design",
+            "url": "",
+            "info": "Prima panoramica completa della storia del design olimpico dalla nascita dei Giochi moderni a Tokyo 2020. Due volumi, ~6.000 illustrazioni, 58 capitoli. Copre logo, pittogrammi, mascotte, medaglie, uniformi, poster, manifesti e materiali efimeri per ogni edizione dei Giochi.\n\n>Fonte primaria per posizionare i casi olimpici del corpus nel contesto storico più ampio. Permette di verificare l'unicità di Monaco 1972 rispetto alle edizioni precedenti e successive, di confrontare le strategie del ciclo di vita tra diverse edizioni, e di documentare visivamente i sistemi analizzati."
         }
     ],
     "caseStudies": [],
     "links": [
         {
-            "paper": "p_custom_1775052222853",
-            "keyword": "k_custom_1775053482714"
+            "paper": "p_custom_1776351860177",
+            "keyword": "k_custom_1776351958334"
         },
         {
-            "paper": "p_custom_1775052222853",
-            "keyword": "k_custom_1775053506389"
+            "paper": "p_custom_1776351324916",
+            "keyword": "k_custom_1776351958334"
         },
         {
-            "paper": "p_custom_1775057124911",
-            "keyword": "k_custom_1775053482714"
+            "paper": "p_custom_1776351324916",
+            "keyword": "k_custom_1776353210434"
         },
         {
-            "paper": "p_custom_1775057124911",
-            "keyword": "k_custom_1775053506389"
+            "paper": "p_custom_1776351324916",
+            "keyword": "k_custom_1776353624258"
         },
         {
-            "paper": "p_custom_1775057124911",
-            "keyword": "k_custom_1775057154594"
+            "paper": "p_custom_1776351324916",
+            "keyword": "k_custom_1776353905028"
         },
         {
-            "paper": "p_custom_1775057537676",
-            "keyword": "k_custom_1775053482714"
+            "paper": "p_custom_1776354258179",
+            "keyword": "k_custom_1776351958334"
         },
         {
-            "paper": "p_custom_1775057537676",
-            "keyword": "k_custom_1775057154594"
+            "paper": "p_custom_1776354258179",
+            "keyword": "k_custom_1776353210434"
         },
         {
-            "paper": "p_custom_1775057537676",
-            "keyword": "k_custom_1775057548192"
+            "paper": "p_custom_1776354258179",
+            "keyword": "k_custom_1776353624258"
         },
         {
-            "paper": "p_custom_1775057652824",
-            "keyword": "k_custom_1775053482714"
+            "paper": "p_custom_1776354345344",
+            "keyword": "k_custom_1776351958334"
         },
         {
-            "paper": "p_custom_1775057652824",
-            "keyword": "k_custom_1775057154594"
+            "paper": "p_custom_1776354345344",
+            "keyword": "k_custom_1776353624258"
         },
         {
-            "paper": "p_custom_1775057652824",
-            "keyword": "k_custom_1775057548192"
+            "paper": "p_custom_1776354423285",
+            "keyword": "k_custom_1776351958334"
         },
         {
-            "paper": "p_custom_1775057729532",
-            "keyword": "k_custom_1775053482714"
+            "paper": "p_custom_1776354423285",
+            "keyword": "k_custom_1776353210434"
         },
         {
-            "paper": "p_custom_1775057729532",
-            "keyword": "k_custom_1775053506389"
+            "paper": "p_custom_1776354423285",
+            "keyword": "k_custom_1776353624258"
         },
         {
-            "paper": "p_custom_1775057729532",
-            "keyword": "k_custom_1775057154594"
+            "paper": "p_custom_1776354564495",
+            "keyword": "k_custom_1776353210434"
+        },
+        {
+            "paper": "p_custom_1776354564495",
+            "keyword": "k_custom_1776353277525"
+        },
+        {
+            "paper": "p_custom_1776354564495",
+            "keyword": "k_custom_1776353303474"
+        },
+        {
+            "paper": "p_custom_1776354564495",
+            "keyword": "k_custom_1776353624258"
+        },
+        {
+            "paper": "p_custom_1776354564495",
+            "keyword": "k_custom_1776353905028"
+        },
+        {
+            "paper": "p_custom_1776354698224",
+            "keyword": "k_custom_1776353210434"
+        },
+        {
+            "paper": "p_custom_1776354698224",
+            "keyword": "k_custom_1776353277525"
+        },
+        {
+            "paper": "p_custom_1776354698224",
+            "keyword": "k_custom_1776353624258"
+        },
+        {
+            "paper": "p_custom_1776354698224",
+            "keyword": "k_custom_1776353905028"
         }
     ]
 }
